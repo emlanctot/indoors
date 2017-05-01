@@ -7,7 +7,6 @@ class NavContainer extends React.Component {
       this.state ={}
   }
   render() {
-
     return(
       <div>
         <div className="menu">
