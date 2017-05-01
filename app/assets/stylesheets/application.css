@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+.room-container {
+  background-color: blue;
+  height: 1000px;
+}
+
+.room-tile {
+  background-color: white;
+  height: 900px;
+  border: 3px solid black;
+  margin-left: 90px;
+  margin-right: 90px;
+}

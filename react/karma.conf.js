@@ -43,13 +43,21 @@ module.exports = function(config) {
           {
             test: /\.jsx?$/,
             exclude: /node_modules/,
-            loader: 'babel'
+            loader: 'babel-loader'
           },
           // use isparta-loader for ES6 code coverage in the src folder
           {
             test: /\.jsx?$/,
             exclude: /(node_modules|test)/,
             loader: 'isparta'
+          },
+          {
+            test: /\.json$/,
+            include: [
+              /node_modules/,
+              path.resolve(__dirname, '..')
+            ],
+            loader: 'json-loader'
           }
         ]
       },
