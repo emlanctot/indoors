@@ -1,0 +1,21 @@
+<%= form_for [@user, @room] do |f| %>
+  <% if @room.errors.any? %>
+    <ul>
+      <% @errors.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= f.label :name, "Room name" %>
+    <br>
+    <%= f.text_area :name %>
+  </div>
+
+  <%= f.submit "Enter Room" %>
+
+<% end %>
+
+
+<div id='app'>
+</div>

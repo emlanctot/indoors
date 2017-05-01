@@ -12,7 +12,7 @@ class NavContainer extends React.Component {
         <div className="menu">
           <ul className="menu align-right">
             <li>Profile</li>
-            <li>Login/Signup</li>
+            <li>Login/Signup/Logout</li>
             <li>Room</li>
           </ul>
         </div>

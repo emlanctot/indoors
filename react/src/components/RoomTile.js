@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class RoomTile extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +12,7 @@ class RoomTile extends React.Component {
       return(
         <div className='room-tile'>
           <p>hi</p>
-          <img src='../img/corner1.png'/>
+          <img src={assetHelper["bed.png"]}></img>
         </div>
 
 
