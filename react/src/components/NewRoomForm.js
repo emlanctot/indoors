@@ -4,7 +4,6 @@ const NewRoomForm = (props) => {
   return(
     <div className="column row">
       <div>
-        <center> <button type="button" onClick={props.handleFormButtonClick} className= 'share-app'>MAKE A ROOM</button> </center>
       </div>
       <form onSubmit={props.handleSubmit} className={props.className}>
         <label>Where is the room?</label>

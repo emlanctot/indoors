@@ -2,7 +2,7 @@ class Api::V1::RoomsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   def index
-    @room = Room.all
+    @room = Room.where(user_id: current_user.id)
     # @room.user_id = current_user.id
     render json: @room
   end

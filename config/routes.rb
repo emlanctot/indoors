@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       resources :rooms, only: [:index, :create, :new, :show]
     end
   end
+  
+  resources :rooms
 
   namespace :api do
     namespace :v1 do
