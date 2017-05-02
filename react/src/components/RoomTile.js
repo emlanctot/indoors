@@ -11,8 +11,8 @@ class RoomTile extends React.Component {
 
       return(
         <div className='room-tile'>
-          <p>hi</p>
-          <img src={assetHelper["bed.png"]}></img>
+          <p>{this.props.name}</p>
+          <img className="bed-img" src={assetHelper["bed.png"]}></img>
         </div>
 
 

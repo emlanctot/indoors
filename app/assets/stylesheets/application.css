@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .hidden {
+  display: none;
+}
 
 .room-container {
   background-color: blue;
@@ -21,9 +24,18 @@
 
 .room-tile {
   background-color: white;
-  /*background-image: url("img/corner1.png");*/
-  height: 900px;
+  background-image: url("corner1.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 520px;
+  height: 390px;
   border: 3px solid black;
-  margin-left: 90px;
-  margin-right: 90px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bed-img {
+  margin-left: 115px;
+  margin-top: 60px;
 }

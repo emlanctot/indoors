@@ -4,6 +4,9 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
     @current_user = current_user
+    respond_to do |format|
+      format.json  { render :json => { :current_user => @current_user }}
+    end
   end
 
   def create
@@ -12,6 +15,4 @@ class Api::V1::UsersController < ApplicationController
       render json: @user
     end
   end
-
-
 end
