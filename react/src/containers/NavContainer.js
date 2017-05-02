@@ -8,6 +8,7 @@ class NavContainer extends React.Component {
     super(props);
       this.state = {
         name: '',
+        current_user: '',
         formToggle: false,
         rooms: []
       };
@@ -18,7 +19,7 @@ class NavContainer extends React.Component {
 
   sendInput(roomPayload) {
     console.log(roomPayload)
-    fetch(`/api/v1/rooms.json`, {
+    fetch('/api/v1/rooms.json', {
       credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -42,7 +43,8 @@ class NavContainer extends React.Component {
 
 
   componentDidMount() {
-    this.getData()
+    this.getData();
+    this.getUserData();
   }
 
   getData() {
@@ -53,11 +55,22 @@ class NavContainer extends React.Component {
       });
   }
 
+  getUserData() {
+    fetch(`/api/v1/users`, {credentials: 'same-origin'})
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({
+        current_user: responseData.current_user
+      });
+    });
+  }
+
+
   handleSubmit(event) {
   event.preventDefault();
     let roomPayload = {
       name: this.state.name,
-      user_id: this.state.user_id
+      user_id: this.state.current_user.id
     };
     this.sendInput(roomPayload);
     this.handleClearForm();
@@ -81,7 +94,6 @@ class NavContainer extends React.Component {
     } else {
       className = 'hidden'
     };
-
 
     return(
       <div>

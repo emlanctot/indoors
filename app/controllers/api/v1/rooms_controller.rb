@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
 
   def index
     @room = Room.all
@@ -14,7 +14,6 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def create
-    pry
     if user_signed_in?
       @room = Room.create(room_params)
       @room.user_id = current_user.id
@@ -28,6 +27,6 @@ class Api::V1::RoomsController < ApplicationController
 
 private
   def room_params
-    params.(:room).permit(:id, :user_id, :name, :created_at, :updated_at)
+    params.permit(:id, :user_id, :name, :created_at, :updated_at)
   end
 end
