@@ -1,5 +1,5 @@
 import React from 'react';
-import AllRooms from '../components/AllRooms'
+import AllCorners from '../components/AllCorners'
 
 class RoomContainer extends React.Component {
   constructor(props) {
@@ -7,12 +7,18 @@ class RoomContainer extends React.Component {
     this.state = {}
   }
     render() {
-
+      let rooms = this.props.rooms.map((room) => {
+        return (
+            <AllCorners
+              key = {room.id}
+              id = {room.id}
+              name = {room.name}
+            />
+        )
+      })
       return(
         <div className='room-container'>
-        <AllRooms
-          rooms= {this.props.rooms}
-        />
+          {rooms}
         </div>
 
       )
