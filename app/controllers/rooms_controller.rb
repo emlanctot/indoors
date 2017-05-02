@@ -2,12 +2,9 @@ class RoomsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
 
-  def index
-    @rooms = Room.all
-  end
-
   def show
     @room = Room.find(params[:id])
+    @user = current_user
   end
 
   private
