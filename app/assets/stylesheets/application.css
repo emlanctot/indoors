@@ -22,7 +22,7 @@
   height: 1000px;
 }
 
-.room-tile {
+.bed-tile {
   background-color: white;
   background-image: url("corner1.png");
   -webkit-background-size: cover;
@@ -35,7 +35,67 @@
   margin-left: auto;
   margin-right: auto;
 }
+.clutter-tile {
+  background-color: white;
+  background-image: url("corner2.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 520px;
+  height: 390px;
+  border: 3px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+.plant-tile {
+  background-color: white;
+  background-image: url("corner3.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 520px;
+  height: 390px;
+  border: 3px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+.door-tile {
+  background-color: white;
+  background-image: url("corner4.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 520px;
+  height: 390px;
+  border: 3px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
 .bed-img {
+  position:absolute;
   margin-left: 115px;
+  margin-top: 60px;
+}
+.window-img {
+  position:absolute;
+  margin-left: 300px;
+  margin-top: -55px;
+}
+.plant-img {
+  position:absolute;
+  margin-left: 150px;
+  margin-top: -30px;
+}
+.door-img {
+  position:absolute;
+  margin-left: 200px;
+  margin-top: -56px;
+}
+.broom-img {
+  position:absolute;
+  margin-left: 300px;
   margin-top: 60px;
 }

@@ -10,13 +10,13 @@ class PlantCornerTile extends React.Component {
     render() {
 
       return(
-        <div>
-          <Link to={`/rooms/4`}>Left</Link>
-          <Link to={`/rooms/2`}>Right</Link>
-          <div className='room-tile'>
-            <p>{this.props.name}</p>
-            <img className="bed-img" src={assetHelper["bed.png"]}></img>
-          </div>
+        <div className='plant-tile'>
+          <button onClick={this.props.handleClutterCornerClick}>LEFT</button>
+          <button onClick={this.props.handleDoorCornerClick}>RIGHT</button>
+          <p>{this.props.name}</p>
+          <img className="plant-img" src={assetHelper["plant.png"]}></img>
+          <img className="window-img" src={assetHelper["window.png"]}></img>
+
         </div>
 
 
