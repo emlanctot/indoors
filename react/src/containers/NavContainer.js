@@ -112,6 +112,7 @@ class NavContainer extends React.Component {
         <div>
           <RoomContainer
             rooms= {this.state.rooms}
+            current_user= {this.state.current_user}
           />
         </div>
 
