@@ -13,8 +13,6 @@ const Root = () => {
 
           <IndexRoute component={RoomContainer} />
           <Route path='/rooms' component={RoomContainer} />
-          <Route path='/rooms/bed' component={BedCornerTile} />
-          <Route path='/rooms/door' component={DoorCornerTile} />
 
         </Route>
 

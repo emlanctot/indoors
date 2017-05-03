@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 class BedCornerTile extends React.Component {
   constructor(props) {
@@ -11,14 +10,12 @@ class BedCornerTile extends React.Component {
     render() {
 
       return(
-        <div>
-          <Link to={`/rooms/door`}>Left</Link>
-          <Link to={`/rooms/door`}>Right</Link>
-          <div className='room-tile'>
+          <div className='bed-tile'>
+            <button onClick={this.props.handleDoorCornerClick}>LEFT</button>
+            <button onClick={this.props.handleClutterCornerClick}>RIGHT</button>
             <p>{this.props.name}</p>
             <img className="bed-img" src={assetHelper["bed.png"]}></img>
           </div>
-        </div>
 
 
       )
