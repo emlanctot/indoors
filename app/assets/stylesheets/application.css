@@ -16,7 +16,9 @@
  .hidden {
   display: none;
 }
-
+body {
+  background-color: black;
+}
 .room-container {
   background-color: blue;
   height: 1000px;

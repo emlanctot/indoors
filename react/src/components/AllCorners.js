@@ -11,16 +11,37 @@ class AllCorners extends React.Component {
       bedCornerToggle: false,
       plantCornerToggle: false,
       clutterCornerToggle: false,
-      doorCornerToggle: true
+      doorCornerToggle: true,
+      plant_health: this.props.plant_health
     }
     this.handleBedCornerClick = this.handleBedCornerClick.bind(this);
     this.handlePlantCornerClick = this.handlePlantCornerClick.bind(this);
     this.handleClutterCornerClick = this.handleClutterCornerClick.bind(this);
     this.handleDoorCornerClick = this.handleDoorCornerClick.bind(this);
+    this.handleWater = this.handleWater.bind(this);
+  }
+
+  handleWater() {
+    let value = this.state.plant_health += 1;
+    this.setState({ plant_health: value });
+    let waterPayload = {
+      room_id: this.props.id,
+      plant_health: this.props.plant_health
+    };
+    this.sendWater(waterPayload);
+  }
+
+  sendWater(waterPayload) {
+    let roomId = this.props.id;
+    console.log(waterPayload)
+    fetch(`/api/v1/rooms/${roomId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(waterPayload)
+    });
   }
 
   handleBedCornerClick() {
-        // debugger;
     if (this.state.bedCornerToggle === false) {
       this.setState({
         bedCornerToggle: true,
@@ -34,7 +55,6 @@ class AllCorners extends React.Component {
   }
 
   handlePlantCornerClick() {
-    // debugger;
     if (this.state.plantCornerToggle === false) {
       this.setState({
         plantCornerToggle: true,
@@ -48,7 +68,6 @@ class AllCorners extends React.Component {
   }
 
   handleClutterCornerClick() {
-    // debugger;
     if (this.state.clutterCornerToggle === false) {
       this.setState({
         clutterCornerToggle: true,
@@ -62,7 +81,6 @@ class AllCorners extends React.Component {
   }
 
   handleDoorCornerClick() {
-        // debugger;
     if (this.state.doorCornerToggle === false) {
       this.setState({
         doorCornerToggle: true,
@@ -85,6 +103,8 @@ class AllCorners extends React.Component {
             name = {this.props.name}
             handleDoorCornerClick = {this.handleDoorCornerClick}
             handleClutterCornerClick = {this.handleClutterCornerClick}
+            handleWater = {this.handleWater}
+            plantHealth = {this.props.plant_health}
           />
         )
       }

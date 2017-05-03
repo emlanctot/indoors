@@ -10,9 +10,11 @@ class RoomContainer extends React.Component {
       let rooms = this.props.rooms.map((room) => {
         return (
             <AllCorners
-              key = {room.id}
-              id = {room.id}
-              name = {room.name}
+              key= {room.id}
+              id= {room.id}
+              name= {room.name}
+              current_user= {room.current_user}
+              plant_health= {room.plant_health}
             />
         )
       })

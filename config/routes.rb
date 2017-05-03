@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :rooms, only: [:index, :create, :new, :show]
+      resources :rooms, only: [:index, :create, :new, :show, :update, :edit]
     end
   end
-  
+
   resources :rooms
 
   namespace :api do
