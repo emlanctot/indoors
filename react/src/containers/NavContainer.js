@@ -61,6 +61,8 @@ class NavContainer extends React.Component {
       });
   }
 
+
+
   getUserData() {
     fetch(`/api/v1/users`, {credentials: 'same-origin'})
     .then(response => response.json())
@@ -104,8 +106,8 @@ class NavContainer extends React.Component {
       <div>
         <div className="menu" id="nav-bar">
           <ul className="menu align-right ">
-            <li>NEIGHBORS</li>
-            <li>ROOM</li>
+            <li><Link to='/rooms'>NEIGHBORS</Link></li>
+            <li><Link to='/'>ROOM</Link></li>
             <li>PROFILE</li>
             <li onClick={this.handleFormButtonClick}>CREATE</li>
             <li>

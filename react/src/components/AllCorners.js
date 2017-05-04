@@ -12,7 +12,8 @@ class AllCorners extends React.Component {
       plantCornerToggle: false,
       clutterCornerToggle: false,
       doorCornerToggle: true,
-      plant_health: this.props.plant_health
+      plant_health: this.props.plant_health,
+      current_user: ''
     }
     this.handleBedCornerClick = this.handleBedCornerClick.bind(this);
     this.handlePlantCornerClick = this.handlePlantCornerClick.bind(this);
@@ -33,8 +34,9 @@ class AllCorners extends React.Component {
 
   sendWater(waterPayload) {
     let roomId = this.props.id;
+    let creator = this.props.creator;
     console.log(waterPayload)
-    fetch(`/api/v1/rooms/${roomId}`, {
+    fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(waterPayload)
@@ -93,7 +95,29 @@ class AllCorners extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.getUserData();
+  }
+
+  getUserData() {
+    fetch(`/api/v1/users`, {credentials: 'same-origin'})
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({
+        current_user: responseData.current_user
+      });
+    });
+  }
+
+
   render() {
+    let clickResponse;
+    if (this.state.current_user.id === this.props.creator){
+      clickResponse = this.handleWater
+    } else {
+      clickResponse = null
+    }
+
 
     let showComponent;
     if (this.state.plantCornerToggle) {
@@ -102,8 +126,9 @@ class AllCorners extends React.Component {
           <PlantCornerTile
             handleDoorCornerClick = {this.handleDoorCornerClick}
             handleClutterCornerClick = {this.handleClutterCornerClick}
-            handleWater = {this.handleWater}
+            handleWater = {clickResponse}
             plantHealth = {this.state.plant_health}
+            creator= {this.state.current_user}
           />
         )
       }
@@ -113,6 +138,7 @@ class AllCorners extends React.Component {
         <BedCornerTile
           handleClutterCornerClick = {this.handleClutterCornerClick}
           handleDoorCornerClick = {this.handleDoorCornerClick}
+          creator= {this.state.current_user}
         />
         )
       }
@@ -122,6 +148,7 @@ class AllCorners extends React.Component {
           <ClutterCornerTile
             handleBedCornerClick = {this.handleBedCornerClick}
             handlePlantCornerClick = {this.handlePlantCornerClick}
+            creator= {this.state.current_user}
           />
         )
       }
@@ -131,10 +158,12 @@ class AllCorners extends React.Component {
           <DoorCornerTile
             handleBedCornerClick = {this.handleBedCornerClick}
             handlePlantCornerClick = {this.handlePlantCornerClick}
+            creator= {this.state.current_user}
           />
         )
       }
     }
+
     return(
       <div>
         <h4 className= 'room-name'>{this.props.name}</h4>

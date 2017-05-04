@@ -15,13 +15,23 @@
  *= require foundation_and_overrides
 
  */
+
+
+ /*HEX: #ffef96
+
+HEX: #50394c
+
+HEX: #b2b2b2
+
+HEX: #f4e1d2*/
+
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
  .hidden {
   display: none;
 }
 body {
-  background-color: pink;
+  background-color: #f9ecda;
 }
 .room-container {
 
