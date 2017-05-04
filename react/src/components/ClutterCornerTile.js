@@ -13,7 +13,6 @@ class ClutterCornerTile extends React.Component {
         <div className='clutter-tile'>
           <button onClick={this.props.handleBedCornerClick}>LEFT</button>
           <button onClick={this.props.handlePlantCornerClick}>RIGHT</button>
-          <p>{this.props.name}</p>
         </div>
 
 
