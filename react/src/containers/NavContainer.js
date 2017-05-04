@@ -13,7 +13,6 @@ class NavContainer extends React.Component {
         name: '',
         current_user: '',
         formToggle: false,
-        room: [],
         rooms: []
       };
       this.handleNameChange = this.handleNameChange.bind(this);
@@ -58,7 +57,7 @@ class NavContainer extends React.Component {
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData)
-        this.setState({ room: responseData });
+        this.setState({ rooms: responseData });
       });
   }
 
@@ -101,7 +100,6 @@ class NavContainer extends React.Component {
     } else {
       className = 'hidden'
     };
-    debugger;
     return(
       <div>
         <div className="menu" id="nav-bar">
@@ -122,12 +120,9 @@ class NavContainer extends React.Component {
           </ul>
         </div>
         <div>
-          <AllCorners
-            room= {this.state.room}
+          <RoomContainer
+            rooms= {this.state.rooms}
             current_user= {this.state.current_user}
-            name= {this.state.room.name}
-            id= {this.state.room.id}
-            key= {this.state.room.key}
           />
           {this.props.children}
         </div>
