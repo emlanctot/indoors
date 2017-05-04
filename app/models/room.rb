@@ -7,7 +7,7 @@ class Room < ActiveRecord::Base
   validates :plant_health, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
 
   def plant_decline
-    if plant_health.positive?
+    if self.plant_health.positive?
       self.plant_health = self.plant_health - 1
     else
       return true
@@ -15,9 +15,9 @@ class Room < ActiveRecord::Base
   end
 
   def room_decline
-    plant_health.decay
-    plant_health.save
-    return (plant_health)
+    self.plant_decline
+    self.save
+    return (self.plant_health)
   end
 
 end
