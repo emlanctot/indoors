@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import NewRoomForm from '../components/NewRoomForm';
 import RoomContainer from './RoomContainer';
+import NeighborsContainer from './NeighborsContainer';
+import AllCorners from '../components/AllCorners'
+
 
 class NavContainer extends React.Component {
   constructor(props){
@@ -19,7 +22,7 @@ class NavContainer extends React.Component {
 
   sendInput(roomPayload) {
     console.log(roomPayload)
-    fetch('/api/v1/rooms.json', {
+    fetch(`/api/v1/users/${this.state.current_user.id}/rooms.json`, {
       credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -43,14 +46,17 @@ class NavContainer extends React.Component {
 
 
   componentDidMount() {
-    this.getData();
     this.getUserData();
+    this.getData();
+    // this.getRoomsData();
   }
 
+
   getData() {
-    fetch(`/api/v1/rooms`, {credentials: 'same-origin'})
+    fetch(`/api/v1/rooms/${this.props.params.id}`, {credentials: 'same-origin'})
       .then(response => response.json())
       .then(responseData => {
+        console.log(responseData)
         this.setState({ rooms: responseData });
       });
   }
@@ -94,7 +100,6 @@ class NavContainer extends React.Component {
     } else {
       className = 'hidden'
     };
-
     return(
       <div>
         <div className="menu" id="nav-bar">
@@ -119,8 +124,8 @@ class NavContainer extends React.Component {
             rooms= {this.state.rooms}
             current_user= {this.state.current_user}
           />
+          {this.props.children}
         </div>
-
       </div>
 
     )
