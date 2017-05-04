@@ -103,7 +103,7 @@ class AllCorners extends React.Component {
             handleDoorCornerClick = {this.handleDoorCornerClick}
             handleClutterCornerClick = {this.handleClutterCornerClick}
             handleWater = {this.handleWater}
-            plantHealth = {this.props.plant_health}
+            plantHealth = {this.state.plant_health}
           />
         )
       }

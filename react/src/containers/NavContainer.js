@@ -19,7 +19,7 @@ class NavContainer extends React.Component {
 
   sendInput(roomPayload) {
     console.log(roomPayload)
-    fetch('/api/v1/rooms.json', {
+    fetch(`/api/v1/users/${this.state.current_user.id}/rooms.json`, {
       credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -43,8 +43,8 @@ class NavContainer extends React.Component {
 
 
   componentDidMount() {
-    this.getData();
     this.getUserData();
+    this.getData();
   }
 
 
