@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import NewRoomForm from '../components/NewRoomForm';
 import RoomContainer from './RoomContainer';
+import NeighborsContainer from './NeighborsContainer';
+import AllCorners from '../components/AllCorners'
+
 
 class NavContainer extends React.Component {
   constructor(props){
@@ -10,6 +13,7 @@ class NavContainer extends React.Component {
         name: '',
         current_user: '',
         formToggle: false,
+        room: [],
         rooms: []
       };
       this.handleNameChange = this.handleNameChange.bind(this);
@@ -45,15 +49,16 @@ class NavContainer extends React.Component {
   componentDidMount() {
     this.getUserData();
     this.getData();
+    // this.getRoomsData();
   }
 
 
   getData() {
-    fetch(`/api/v1/rooms`, {credentials: 'same-origin'})
+    fetch(`/api/v1/rooms/${this.props.params.id}`, {credentials: 'same-origin'})
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData)
-        this.setState({ rooms: responseData });
+        this.setState({ room: responseData });
       });
   }
 
@@ -96,6 +101,7 @@ class NavContainer extends React.Component {
     } else {
       className = 'hidden'
     };
+    debugger;
     return(
       <div>
         <div className="menu" id="nav-bar">
@@ -116,12 +122,15 @@ class NavContainer extends React.Component {
           </ul>
         </div>
         <div>
-          <RoomContainer
-            rooms= {this.state.rooms}
+          <AllCorners
+            room= {this.state.room}
             current_user= {this.state.current_user}
+            name= {this.state.room.name}
+            id= {this.state.room.id}
+            key= {this.state.room.key}
           />
+          {this.props.children}
         </div>
-
       </div>
 
     )

@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @room = Room.find(params[:id])
     @user = current_user
+    @room = Room.where(user_id: current_user.id)
   end
 
   private
