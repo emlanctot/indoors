@@ -13,8 +13,8 @@ class RoomContainer extends React.Component {
               key= {room.id}
               id= {room.id}
               name= {room.name}
-              current_user= {room.current_user}
               plant_health= {room.plant_health}
+              creator= {room.user_id}
             />
         )
       })
