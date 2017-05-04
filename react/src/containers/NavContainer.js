@@ -47,10 +47,12 @@ class NavContainer extends React.Component {
     this.getUserData();
   }
 
+
   getData() {
     fetch(`/api/v1/rooms`, {credentials: 'same-origin'})
       .then(response => response.json())
       .then(responseData => {
+        console.log(responseData)
         this.setState({ rooms: responseData });
       });
   }
@@ -94,7 +96,6 @@ class NavContainer extends React.Component {
     } else {
       className = 'hidden'
     };
-
     return(
       <div>
         <div className="menu" id="nav-bar">
@@ -116,7 +117,6 @@ class NavContainer extends React.Component {
         </div>
         <div>
           <RoomContainer
-            date={new Date()}
             rooms= {this.state.rooms}
             current_user= {this.state.current_user}
           />
