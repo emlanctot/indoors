@@ -12,18 +12,29 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
  .hidden {
   display: none;
 }
 body {
-  background-color: black;
+  background-color: #03000E;
 }
 .room-container {
-  background-color: blue;
-  height: 1000px;
-}
 
+}
+#nav-bar {
+  max-width: 2000px;
+  color: white;
+  height: 60px;
+}
+li {
+  padding-right: 40px;
+  font-family: 'Questrial', sans-serif;
+}
 .bed-tile {
   background-color: white;
   background-image: url("corner1.png");
@@ -33,7 +44,7 @@ body {
   background-size: cover;
   width: 520px;
   height: 390px;
-  border: 3px solid black;
+  border: 5px solid #816535;
   margin-left: auto;
   margin-right: auto;
 }
@@ -46,7 +57,7 @@ body {
   background-size: cover;
   width: 520px;
   height: 390px;
-  border: 3px solid black;
+  border: 5px solid #816535;
   margin-left: auto;
   margin-right: auto;
 }
@@ -59,7 +70,7 @@ body {
   background-size: cover;
   width: 520px;
   height: 390px;
-  border: 3px solid black;
+  border: 5px solid #816535;
   margin-left: auto;
   margin-right: auto;
 }
@@ -72,7 +83,7 @@ body {
   background-size: cover;
   width: 520px;
   height: 390px;
-  border: 3px solid black;
+  border: 5px solid #816535;
   margin-left: auto;
   margin-right: auto;
 }
@@ -100,4 +111,9 @@ body {
   position:absolute;
   margin-left: 300px;
   margin-top: 60px;
+}
+.room-name {
+  color: white;
+  text-align: center;
+  padding-bottom: 40px;
 }

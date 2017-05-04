@@ -26,7 +26,7 @@ class AllCorners extends React.Component {
     this.setState({ plant_health: value });
     let waterPayload = {
       room_id: this.props.id,
-      plant_health: this.props.plant_health
+      plant_health: this.state.plant_health
     };
     this.sendWater(waterPayload);
   }
@@ -100,7 +100,6 @@ class AllCorners extends React.Component {
       showComponent = () => {
         return(
           <PlantCornerTile
-            name = {this.props.name}
             handleDoorCornerClick = {this.handleDoorCornerClick}
             handleClutterCornerClick = {this.handleClutterCornerClick}
             handleWater = {this.handleWater}
@@ -112,7 +111,6 @@ class AllCorners extends React.Component {
       showComponent = () => {
         return(
         <BedCornerTile
-          name = {this.props.name}
           handleClutterCornerClick = {this.handleClutterCornerClick}
           handleDoorCornerClick = {this.handleDoorCornerClick}
         />
@@ -122,7 +120,6 @@ class AllCorners extends React.Component {
       showComponent = () => {
         return(
           <ClutterCornerTile
-            name = {this.props.name}
             handleBedCornerClick = {this.handleBedCornerClick}
             handlePlantCornerClick = {this.handlePlantCornerClick}
           />
@@ -132,7 +129,6 @@ class AllCorners extends React.Component {
       showComponent = () => {
         return(
           <DoorCornerTile
-            name = {this.props.name}
             handleBedCornerClick = {this.handleBedCornerClick}
             handlePlantCornerClick = {this.handlePlantCornerClick}
           />
@@ -141,6 +137,7 @@ class AllCorners extends React.Component {
     }
     return(
       <div>
+        <h4 className= 'room-name'>{this.props.name}</h4>
         {showComponent()}
       </div>
 

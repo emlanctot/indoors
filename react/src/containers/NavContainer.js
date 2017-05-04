@@ -97,17 +97,22 @@ class NavContainer extends React.Component {
 
     return(
       <div>
-        <div className="menu">
-            <button>Profile</button>
-            <button>Login/Signup/Logout</button>
-            <button onClick={this.handleFormButtonClick} >MAKE A ROOM</button>
-            <NewRoomForm
-              className = {className}
-              handleFormButtonClick = {this.handleFormButtonClick}
-              name = {this.state.name}
-              nameChange = {this.handleNameChange}
-              handleSubmit = {this.handleSubmit}
-            />
+        <div className="menu" id="nav-bar">
+          <ul className="menu align-right ">
+            <li>NEIGHBORS</li>
+            <li>ROOM</li>
+            <li>PROFILE</li>
+            <li onClick={this.handleFormButtonClick}>CREATE</li>
+            <li>
+              <NewRoomForm
+                className = {className}
+                handleFormButtonClick = {this.handleFormButtonClick}
+                name = {this.state.name}
+                nameChange = {this.handleNameChange}
+                handleSubmit = {this.handleSubmit}
+              />
+            </li>
+          </ul>
         </div>
         <div>
           <RoomContainer
