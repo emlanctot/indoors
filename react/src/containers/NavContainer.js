@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import NewRoomForm from '../components/NewRoomForm';
 import RoomContainer from './RoomContainer';
 import NeighborsContainer from './NeighborsContainer';
-import AllCorners from '../components/AllCorners'
 
 
 class NavContainer extends React.Component {
@@ -108,8 +107,8 @@ class NavContainer extends React.Component {
           <ul className="menu align-right ">
             <li><Link to='/rooms'>NEIGHBORS</Link></li>
             <li><Link to='/'>ROOM</Link></li>
-            <li>PROFILE</li>
-            <li onClick={this.handleFormButtonClick}>CREATE</li>
+            <li><Link to='#'>PROFILE</Link></li>
+            <li onClick={this.handleFormButtonClick}><Link to='#'>CREATE</Link></li>
             <li>
               <NewRoomForm
                 className = {className}

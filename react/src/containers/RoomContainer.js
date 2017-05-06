@@ -1,15 +1,17 @@
 import React from 'react';
-import AllCorners from '../components/AllCorners'
+import RoomTile from '../components/RoomTile'
 
 class RoomContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+
+    }
   }
     render() {
       let rooms = this.props.rooms.map((room) => {
         return (
-            <AllCorners
+            <RoomTile
               key= {room.id}
               id= {room.id}
               name= {room.name}
