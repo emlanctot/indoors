@@ -38,8 +38,12 @@ body {
 }
 #nav-bar {
   max-width: 2000px;
-  color: white;
+  color: black;
   height: 60px;
+}
+.Link {
+  border: 2px solid black;
+
 }
 li {
   padding-right: 40px;
@@ -99,19 +103,20 @@ li {
 }
 .bed-img {
   position:absolute;
-  margin-left: 115px;
-  margin-top: 60px;
+  margin-left: 30px;
+  margin-top: 120px;
 }
 .window-img {
   position:absolute;
-  margin-left: 300px;
-  margin-top: -55px;
+  margin-left: 270px;
+  margin-top: 10px;
 }
 .plant-img {
   position:absolute;
-  margin-left: 150px;
-  margin-top: -30px;
+  margin-left: 100px;
+  margin-top: 30px;
 }
+
 .door-img {
   position:absolute;
   margin-left: 110px;
@@ -119,8 +124,8 @@ li {
 }
 .broom-img {
   position:absolute;
-  margin-left: 300px;
-  margin-top: 60px;
+  margin-left: 220px;
+  margin-top: 110px;
 }
 .room-name {
   color: black;
