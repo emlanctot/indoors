@@ -40,6 +40,6 @@ class Api::V1::RoomsController < ApplicationController
 
 private
   def room_params
-    params.permit(:id, :user_id, :plant_health, :name, :created_at, :updated_at)
+    params.permit(:id, :user_id, :plant_health, :cleanliness, :name, :created_at, :updated_at)
   end
 end
