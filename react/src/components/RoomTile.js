@@ -8,7 +8,7 @@ class RoomTile extends React.Component {
     this.state = {
       plant_health: this.props.plant_health,
       current_user: '',
-      statuses: []
+      plantStatus: ''
     }
        this.handleWater = this.handleWater.bind(this);
 
@@ -23,6 +23,31 @@ class RoomTile extends React.Component {
         });
       });
     }
+
+    getRoomData() {
+      let roomId = this.props.id;
+      let creator = this.props.creator;
+      fetch(`/api/v1/rooms/${roomId}`, {credentials: 'same-origin'})
+        .then(response => response.json())
+        .then(responseData => {
+          if (responseData[0].plant_health > 8) {
+            this.setState({ plantStatus: 'This ficus is flourishing.' });
+          } else if (responseData[0].plant_health == 8){
+            this.setState({ plantStatus: 'This ficus is doing great' });
+          } else if (3 < responseData[0].plant_health && responseData[0].plant_health < 8){
+            this.setState({ plantStatus: 'This ficus is doing ok but growing concerned.' });
+          } else if (responseData[0].plant_health == 3){
+            this.setState({ plantStatus: 'This ficus desparately needs to be watered.' });
+          } else if (responseData[0].plant_health == 2){
+            this.setState({ plantStatus: 'Someone has abandoned the ficus.' });
+          } else if (responseData[0].plant_health == 1){
+            this.setState({ plantStatus: 'This ficus is dying.' });
+          } else {
+            this.setState({ plantStatus: 'This ficus is near death.' });
+          };
+        });
+    }
+
 
 
     handleWater() {
@@ -44,28 +69,29 @@ class RoomTile extends React.Component {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(waterPayload)
-      });
+      })
     }
 
     componentDidMount() {
+      this.getRoomData();
       this.getUserData();
     }
 
     getPlantStatuses() {
       if (this.state.plant_health > 8) {
-        this.setState({ statuses: [...this.state.statuses, 'This ficus is flourishing.'] });
+        this.setState({ plantStatus: 'This ficus is flourishing.' });
       } else if (this.state.plant_health == 8){
-        this.setState({ statuses: [...this.state.statuses, 'This ficus is doing great'] });
+        this.setState({ plantStatus: 'This ficus is doing great' });
       } else if (3 < this.state.plant_health && this.state.plant_health < 8){
-        this.setState({ statuses: [...this.state.statuses, 'This ficus is doing ok but growing concerned.'] });
+        this.setState({ plantStatus: 'This ficus is doing ok but growing concerned.' });
       } else if (this.state.plant_health == 3){
-        this.setState({ statuses: [...this.state.statuses, 'This ficus desparately needs to be watered.'] });
+        this.setState({ plantStatus: 'This ficus desparately needs to be watered.' });
       } else if (this.state.plant_health == 2){
-        this.setState({ statuses: [...this.state.statuses, 'Someone has abandoned the ficus.'] });
+        this.setState({ plantStatus: 'Someone has abandoned the ficus.' });
       } else if (this.state.plant_health == 1){
-        this.setState({ statuses: [...this.state.statuses, 'This ficus is dying.'] });
+        this.setState({ plantStatus: 'This ficus is dying.' });
       } else {
-        this.setState({ statuses: [...this.state.statuses, 'This ficus is near death.'] });
+        this.setState({ plantStatus: 'This ficus is near death.' });
       };
     };
 
@@ -79,12 +105,6 @@ class RoomTile extends React.Component {
         clickResponse = null
       }
 
-      let statusDiv = this.state.statuses.map((status) => {
-        return(
-          <li>{status}</li>
-        )
-      })
-
       return(
         <div>
           <h4 className= 'room-name'>{this.props.name}</h4>
@@ -97,7 +117,9 @@ class RoomTile extends React.Component {
             current_user= {this.state.current_user}
           />
           <div className='statuses'>
-            <ul>{statusDiv}</ul>
+            <ul>
+            <li>{this.state.plantStatus}</li>
+            </ul>
           </div>
         </div>
 
