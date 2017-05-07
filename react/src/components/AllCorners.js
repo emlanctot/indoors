@@ -87,7 +87,7 @@ class AllCorners extends React.Component {
             id= {this.props.id}
             handleDoorCornerClick = {this.handleDoorCornerClick}
             handleClutterCornerClick = {this.handleClutterCornerClick}
-            handleWater = {this.props.clickResponse}
+            handleWater = {this.props.waterClickResponse}
             plantHealth = {this.state.plant_health}
             creator= {this.props.current_user}
           />
@@ -125,6 +125,7 @@ class AllCorners extends React.Component {
             id= {this.props.id}
             handleBedCornerClick = {this.handleBedCornerClick}
             handlePlantCornerClick = {this.handlePlantCornerClick}
+            handleClean = {this.props.cleanClickResponse}
             creator= {this.props.current_user}
           />
         )
