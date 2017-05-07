@@ -13,21 +13,24 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require room_tile
+ *= require door_corner
+ *= require plant_corner
+ *= require clutter_corner
+ *= require bed_corner
  */
 
 
  /*HEX: #ffef96
 
-HEX: #50394c
+  HEX: #50394c
 
-HEX: #b2b2b2
+  HEX: #b2b2b2
 
-HEX: #f4e1d2*/
+  HEX: #f4e1d2*/
 
-@import url('https://fonts.googleapis.com/css?family=Questrial');
-
- .hidden {
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Fira+Mono|Merriweather');
+.hidden {
   display: none;
 }
 body {
@@ -36,106 +39,47 @@ body {
 .room-container {
 
 }
-#nav-bar {
-  max-width: 2000px;
+.nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   color: black;
-  height: 60px;
+  font-size: 12px;
+  position:fixed;
+  padding: 5px;
+  z-index: 5;
+  background-color: #f9ecda;
+  border-bottom: 2px solid black;
 }
+/*.nav-line {
+  position: fixed;
+}*/
 .Link {
   border: 2px solid black;
 
 }
-li {
-  padding-right: 40px;
-  font-family: 'Questrial', sans-serif;
-}
-.bed-tile {
-  background-color: white;
-  background-image: url("corner1.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 520px;
-  height: 390px;
-  border: 5px solid #816535;
-  margin-left: auto;
-  margin-right: auto;
-}
-.clutter-tile {
-  background-color: white;
-  background-image: url("corner2.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 520px;
-  height: 390px;
-  border: 5px solid #816535;
-  margin-left: auto;
-  margin-right: auto;
-}
-.plant-tile {
-  background-color: white;
-  background-image: url("corner3.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 520px;
-  height: 390px;
-  border: 5px solid #816535;
-  margin-left: auto;
-  margin-right: auto;
-}
-.door-tile {
-  background-color: white;
-  background-image: url("corner4.png");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  width: 520px;
-  height: 390px;
-  border: 5px solid #816535;
-  margin-left: auto;
-  margin-right: auto;
-}
-.bed-img {
-  position:absolute;
-  margin-left: 30px;
-  margin-top: 120px;
-}
-.window-img {
-  position:absolute;
-  margin-left: 270px;
-  margin-top: 10px;
-}
-.plant-img {
-  position:absolute;
-  margin-left: 100px;
-  margin-top: 30px;
-}
-
-.door-img {
-  position:absolute;
-  margin-left: 110px;
-  margin-top: 8px;
-}
-.broom-img {
-  position:absolute;
-  margin-left: 220px;
-  margin-top: 110px;
-}
-.room-name {
+a {
   color: black;
-  text-align: center;
-  padding-bottom: 10px;
 }
-.statuses {
-  padding-top: 10px;
-  width: 500px;
-  margin-right: auto;
-  margin-left: auto;
-  max-height: 50px;
+a:active-page {
+  text-decoration: line-through;
+}
+li {
+  /*padding-right: 10px;*/
+  font-family: 'Fira Mono', monospace;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul li {
+  /*display: inline;*/
+}
+hr {
+  border-top: 2px solid black;
+  margin-top: 25px;
+}
+h2 {
+  font-family: 'Merriweather', serif;
 }

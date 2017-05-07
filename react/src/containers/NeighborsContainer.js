@@ -27,9 +27,13 @@ class NeighborsContainer extends React.Component {
 
       return(
         <div className='room-container'>
-          <RoomContainer
-            rooms= {this.state.rooms}
-          />
+          <div className='row'>
+            <div className="medium-6 columns">
+              <RoomContainer
+                rooms= {this.state.rooms}
+              />
+            </div>
+          </div>
         </div>
 
       )

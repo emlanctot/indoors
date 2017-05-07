@@ -11,8 +11,8 @@ class BedCornerTile extends React.Component {
 
       return(
           <div className='bed-tile'>
-            <button onClick={this.props.handleDoorCornerClick}>LEFT</button>
-            <button onClick={this.props.handleClutterCornerClick}>RIGHT</button>
+            <button className= 'left' onClick={this.props.handleDoorCornerClick}>&larr;</button>
+            <button className= 'right' onClick={this.props.handleClutterCornerClick}>&rarr;</button>
             <img className="bed-img" src={assetHelper["bed.png"]}></img>
           </div>
 

@@ -134,7 +134,7 @@ class AllCorners extends React.Component {
 
 
     return(
-      <div>
+      <div className='room-itself'>
         {showComponent()}
 
       </div>
