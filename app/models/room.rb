@@ -25,6 +25,7 @@ class Room < ActiveRecord::Base
 
   def room_decline
     self.plant_decline
+    self.save
     self.cleanliness_decline
     self.save
   end

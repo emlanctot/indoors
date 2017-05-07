@@ -16,6 +16,7 @@ class RoomContainer extends React.Component {
               id= {room.id}
               name= {room.name}
               plant_health= {room.plant_health}
+              cleanliness= {room.cleanliness}
               creator= {room.user_id}
             />
         )
