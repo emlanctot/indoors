@@ -1,0 +1,57 @@
+@import "settings";
+
+.room-stats {
+  position: absolute;
+  margin-left: 520px;
+}
+.room-name {
+  color: black;
+  padding: 5px 0px 0px 15px;
+  padding-bottom: 5px;
+  font-family: 'Merriweather', serif;
+  font-weight: lighter;
+  font-size: 18px;
+}
+.room-itself {
+  display: block;
+  margin-left: auto;
+  float:left;
+}
+
+.status-items {
+  border-bottom: 1px solid black;
+  padding: 10px 0px 1px 2px;
+  font-size: 12px;
+  margin-left: 20px;
+}
+.room-wrapper {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 750px;
+}
+.left {
+  position: absolute;
+  margin-top: 400px;
+  font-size: 20px;
+}
+.left:hover {
+  -moz-transform: translate(-4px);
+  -ms-transform: translate(-4px);
+  -o-transform: translate(-4px);
+  -webkit-transform: translate(-4px);
+  transform: translate(-4px)
+}
+.right {
+  position: absolute;
+  margin-top: 400px;
+  margin-left: 490px;
+  font-size: 20px;
+}
+.right:hover {
+  -moz-transform: translate(4px);
+  -ms-transform: translate(4px);
+  -o-transform: translate(4px);
+  -webkit-transform: translate(4px);
+  transform: translate(4px)
+}

@@ -11,8 +11,8 @@ class ClutterCornerTile extends React.Component {
 
       return(
         <div className='clutter-tile'>
-          <button onClick={this.props.handleBedCornerClick}>LEFT</button>
-          <button onClick={this.props.handlePlantCornerClick}>RIGHT</button>
+          <button className= 'left' onClick={this.props.handleBedCornerClick}>&larr;</button>
+          <button className= 'right' onClick={this.props.handlePlantCornerClick}>&rarr;</button>
         </div>
 
 

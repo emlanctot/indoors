@@ -80,25 +80,25 @@ class RoomTile extends React.Component {
 
     getPlantStatuses() {
       if (this.state.plant_health > 8) {
-        this.setState({ plantStatus: 'this ficus is flourishing.' });
+        this.setState({ plantStatus: 'the ficus is flourishing.' });
       } else if (this.state.plant_health == 8){
-        this.setState({ plantStatus: 'this ficus is healthy.' });
+        this.setState({ plantStatus: 'the ficus is healthy.' });
       } else if (this.state.plant_health == 7){
-        this.setState({ plantStatus: 'this ficus is doing great.' });
+        this.setState({ plantStatus: 'the ficus is doing great.' });
       } else if (this.state.plant_health == 6){
-        this.setState({ plantStatus: 'this ficus is doing well.' });
+        this.setState({ plantStatus: 'the ficus is doing well.' });
       } else if (this.state.plant_health == 5){
-        this.setState({ plantStatus: 'this ficus is doing ok.' });
+        this.setState({ plantStatus: 'the ficus is doing ok.' });
       } else if (this.state.plant_health == 4){
-        this.setState({ plantStatus: 'this ficus is doing ok but growing concerned.' });
+        this.setState({ plantStatus: 'the ficus is doing ok but growing concerned.' });
       } else if (this.state.plant_health == 3){
-        this.setState({ plantStatus: 'This ficus desparately needs to be watered.' });
+        this.setState({ plantStatus: 'the ficus desparately needs to be watered.' });
       } else if (this.state.plant_health == 2){
         this.setState({ plantStatus: 'Someone has abandoned the ficus.' });
       } else if (this.state.plant_health == 1){
-        this.setState({ plantStatus: 'This ficus is dying.' });
+        this.setState({ plantStatus: 'the ficus is dying.' });
       } else {
-        this.setState({ plantStatus: 'This ficus is near death.' });
+        this.setState({ plantStatus: 'the ficus is near death.' });
       };
     };
 
@@ -134,27 +134,38 @@ class RoomTile extends React.Component {
         waterClickResponse = this.handleWater
         cleanClickResponse = this.handleClean
       } else {
-        waterClickResponse = null
-        cleanClickResponse = null
+        waterClickResponse = null;
+        cleanClickResponse = null;
+      }
+      let statusBar;
+      if (this.state.current_user.id === this.props.creator){
+
+      } else {
+        statusBar = null;
       }
 
       return(
-        <div>
-          <h4 className= 'room-name'>{this.props.name}</h4>
-          <AllCorners
-            id= {this.props.id}
-            key= {this.props.id}
-            creator= {this.props.creator}
-            plant_health= {this.state.plant_health}
-            waterClickResponse= {waterClickResponse}
-            cleanClickResponse= {cleanClickResponse}
-            current_user= {this.state.current_user}
-          />
-          <div className='statuses'>
-            <ul>
-            <li>{this.state.plantStatus}</li>
-            <li>{this.state.cleanStatus}</li>
-            </ul>
+        <div className= 'row'>
+            <div className="">
+            <div className="room-wrapper">
+
+                <AllCorners
+                  id= {this.props.id}
+                  key= {this.props.id}
+                  creator= {this.props.creator}
+                  plant_health= {this.state.plant_health}
+                  waterClickResponse= {waterClickResponse}
+                  cleanClickResponse= {cleanClickResponse}
+                  current_user= {this.state.current_user}
+                />
+                <div className='room-stats'>
+                <h4 className= 'room-name'>{this.props.name}</h4>
+                  <ul>
+                    <li className= 'status-items'>{this.state.plantStatus}</li>
+                    <li className= 'status-items'>{this.state.cleanStatus}</li>
+                  </ul>
+                </div>
+            </div>
           </div>
         </div>
 
