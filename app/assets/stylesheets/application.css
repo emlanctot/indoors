@@ -51,9 +51,9 @@ body {
   background-color: #f9ecda;
   border-bottom: 2px solid black;
 }
-/*.nav-line {
-  position: fixed;
-}*/
+.active:hover {
+  text-decoration: line-through;
+}
 .Link {
   border: 2px solid black;
 

@@ -1,8 +1,8 @@
 @import "settings";
 
-.door-tile {
+.key-tile {
   background-color: white;
-  background-image: url("corner4.png");
+  // background-image: url("corner4.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -10,21 +10,12 @@
   width: 520px;
   height: 390px;
   border: 5px solid #816535;
-  // display: block;
-  // margin-left: auto;
-  // margin-right: auto;
+
 }
-.door-img {
-  position:absolute;
-  margin-left: 170px;
-  margin-top: 8px;
+.keyclose-img {
+
 }
-.broom-img {
-  position:absolute;
-  margin-left: 300px;
-  margin-top: 110px;
-}
-.broom-img:hover {
+.keyclose-img:hover {
   -webkit-filter: drop-shadow(5px 0px 5px #222);
   filter: drop-shadow(5px 0px 5px #222);
 }

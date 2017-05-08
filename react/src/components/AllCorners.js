@@ -1,8 +1,9 @@
-import React from 'react'
-import BedCornerTile from './BedCornerTile'
-import DoorCornerTile from './DoorCornerTile'
-import ClutterCornerTile from './ClutterCornerTile'
-import PlantCornerTile from './PlantCornerTile'
+import React from 'react';
+import BedCornerTile from './BedCornerTile';
+import DoorCornerTile from './DoorCornerTile';
+import ClutterCornerTile from './ClutterCornerTile';
+import PlantCornerTile from './PlantCornerTile';
+import KeyComponent from './KeyComponent';
 
 class AllCorners extends React.Component {
   constructor(props){
@@ -12,12 +13,28 @@ class AllCorners extends React.Component {
       plantCornerToggle: false,
       clutterCornerToggle: false,
       doorCornerToggle: true,
+      keyLookToggle: false,
       plant_health: this.props.plant_health
     }
     this.handleBedCornerClick = this.handleBedCornerClick.bind(this);
     this.handlePlantCornerClick = this.handlePlantCornerClick.bind(this);
     this.handleClutterCornerClick = this.handleClutterCornerClick.bind(this);
     this.handleDoorCornerClick = this.handleDoorCornerClick.bind(this);
+    this.handleKeyLookClick = this.handleKeyLookClick.bind(this);
+  }
+
+  handleKeyLookClick() {
+    if (this.state.keyLookToggle === false) {
+      this.setState({
+        keyLookToggle: true,
+        bedCornerToggle: false,
+        clutterCornerToggle: false,
+        plantCornerToggle: false,
+        doorCornerToggle: false
+       })
+    } else {
+      this.setState({ keyLookToggle: false })
+    }
   }
 
 
@@ -27,7 +44,8 @@ class AllCorners extends React.Component {
         bedCornerToggle: true,
         clutterCornerToggle: false,
         plantCornerToggle: false,
-        doorCornerToggle: false
+        doorCornerToggle: false,
+        keyLookToggle: false
        })
     } else {
       this.setState({ bedCornerToggle: false })
@@ -40,7 +58,8 @@ class AllCorners extends React.Component {
         plantCornerToggle: true,
         clutterCornerToggle: false,
         bedCornerToggle: false,
-        doorCornerToggle: false
+        doorCornerToggle: false,
+        keyLookToggle: false
       })
     } else {
       this.setState({ plantCornerToggle: false })
@@ -53,7 +72,8 @@ class AllCorners extends React.Component {
         clutterCornerToggle: true,
         bedCornerToggle: false,
         plantCornerToggle: false,
-        doorCornerToggle: false
+        doorCornerToggle: false,
+        keyLookToggle: false
        })
     } else {
       this.setState({ clutterCornerToggle: false })
@@ -67,6 +87,7 @@ class AllCorners extends React.Component {
         clutterCornerToggle: false,
         bedCornerToggle: false,
         plantCornerToggle: false,
+        keyLookToggle: false
       })
     } else {
       this.setState({ doorCornerToggle: false })
@@ -113,7 +134,19 @@ class AllCorners extends React.Component {
             id= {this.props.id}
             handleBedCornerClick = {this.handleBedCornerClick}
             handlePlantCornerClick = {this.handlePlantCornerClick}
+            handleKeyLookClick = {this.handleKeyLookClick}
             creator= {this.state.current_user}
+          />
+        )
+      }
+    } else if (this.state.keyLookToggle) {
+      showComponent = () => {
+        return(
+          <KeyComponent
+            key= {this.props.id}
+            id= {this.props.id}
+            handleClutterCornerClick = {this.handleClutterCornerClick}
+            creator= {this.props.current_user}
           />
         )
       }
