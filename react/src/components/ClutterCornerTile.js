@@ -16,7 +16,7 @@ class ClutterCornerTile extends React.Component {
           <img className="cupboard-img" src={assetHelper["cupboard.png"]}></img>
           <img className="chair-img click" src={assetHelper["chair.png"]}></img>
           <img className="book-img click" src={assetHelper["book.png"]}></img>
-          <img className="key-img click" onClick={this.props.handleKeyLookClick} src={assetHelper["key.png"]}></img>
+          <img className={this.props.keyInRoom} onClick={this.props.handleKeyLookClick} src={assetHelper["key.png"]}></img>
         </div>
 
 

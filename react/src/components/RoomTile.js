@@ -8,12 +8,14 @@ class RoomTile extends React.Component {
     this.state = {
       plant_health: this.props.plant_health,
       cleanliness: this.props.cleanliness,
+      escape: this.props.escape,
       current_user: '',
       plantStatus: '',
       cleanStatus: ''
     }
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
+       this.handleEscape = this.handleEscape.bind(this);
 
     }
 
@@ -30,46 +32,43 @@ class RoomTile extends React.Component {
     handleWater() {
       let value = this.state.plant_health += 1;
       this.setState({ plant_health: value });
-      let waterPayload = {
+      let userPayload = {
         room_id: this.props.id,
         plant_health: this.state.plant_health
       };
-      this.sendWater(waterPayload);
+      this.sendUsersPlay(userPayload);
       this.getPlantStatuses();
     }
 
-    sendWater(waterPayload) {
+    sendUsersPlay(userPayload) {
       let roomId = this.props.id;
       let creator = this.props.creator;
-      console.log(waterPayload)
+      // console.log(waterPayload)
       fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(waterPayload)
+        body: JSON.stringify(userPayload)
       })
+    }
+
+    handleEscape() {
+      this.setState({ escape: true });
+      let userPayload = {
+        room_id: this.props.id,
+        excape: this.state.escape
+      };
+      this.sendUsersPlay(userPayload);
     }
 
     handleClean() {
       let value = this.state.cleanliness += 1;
       this.setState({ cleanliness: value });
-      let cleanPayload = {
+      let userPayload = {
         room_id: this.props.id,
         cleanliness: this.state.cleanliness
       };
-      this.sendClean(cleanPayload);
+      this.sendUsersPlay(userPayload);
       this.getCleanStatuses();
-    }
-
-
-    sendClean(cleanPayload) {
-      let roomId = this.props.id;
-      let creator = this.props.creator;
-      console.log(cleanPayload)
-      fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cleanPayload)
-      })
     }
 
     componentDidMount() {
@@ -130,19 +129,26 @@ class RoomTile extends React.Component {
     render() {
       let cleanClickResponse;
       let waterClickResponse;
+      let escapeClickResponse
       if (this.state.current_user.id === this.props.creator){
         waterClickResponse = this.handleWater
         cleanClickResponse = this.handleClean
+        escapeClickResponse = this.handleEscape
       } else {
         waterClickResponse = null;
         cleanClickResponse = null;
+        escapeClickResponse = null;
       }
-      let statusBar;
-      if (this.state.current_user.id === this.props.creator){
 
+      let keyInRoom;
+      let keyInInventory;
+      if (this.state.formToggle) {
+        keyInRoom = 'hidden'
+        keyInInventory = 'inventory-selected'
       } else {
-        statusBar = null;
-      }
+        keyInRoom = 'key-img'
+        keyInInventory = 'hidden'
+      };
 
       return(
         <div className= 'row'>
@@ -156,6 +162,9 @@ class RoomTile extends React.Component {
                   plant_health= {this.state.plant_health}
                   waterClickResponse= {waterClickResponse}
                   cleanClickResponse= {cleanClickResponse}
+                  escapeClickResponse= {escapeClickResponse}
+                  keyInRoom= {keyInRoom}
+                  keyInInventory= {keyInInventory}
                   current_user= {this.state.current_user}
                 />
                 <div className='room-stats'>
@@ -163,7 +172,11 @@ class RoomTile extends React.Component {
                   <ul>
                     <li className= 'status-items'>{this.state.plantStatus}</li>
                     <li className= 'status-items'>{this.state.cleanStatus}</li>
+                    <li className= 'inventory-title'>Inventory</li>
                   </ul>
+                  <div className= 'inventory'>
+                    <img className={keyInInventory} src={assetHelper["key.png"]}></img>
+                  </div>
                 </div>
             </div>
           </div>

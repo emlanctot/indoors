@@ -24,6 +24,21 @@
   font-size: 12px;
   margin-left: 20px;
 }
+.inventory-title {
+  padding: 10px 5px 3px 2px;
+  font-size: 12px;
+  margin-left: 20px;
+  font-family: 'Fira Mono', monospace;
+  text-align: right;
+}
+.inventory {
+  margin-top: -2px;
+  border: 1px solid black;
+  height: 200px;
+  font-size: 12px;
+  margin-left: 20px;
+  background: white;
+}
 .room-wrapper {
   margin-top:20px;
   display: block;
