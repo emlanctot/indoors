@@ -147,6 +147,7 @@ class AllCorners extends React.Component {
             id= {this.props.id}
             handleClutterCornerClick = {this.handleClutterCornerClick}
             creator= {this.props.current_user}
+            escapeClickResponse= {this.props.escapeClickResponse}
           />
         )
       }

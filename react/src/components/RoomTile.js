@@ -43,7 +43,6 @@ class RoomTile extends React.Component {
     sendUsersPlay(userPayload) {
       let roomId = this.props.id;
       let creator = this.props.creator;
-      // console.log(waterPayload)
       fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -52,10 +51,14 @@ class RoomTile extends React.Component {
     }
 
     handleEscape() {
-      this.setState({ escape: true });
+      if (this.state.escape === false) {
+        this.setState({ escape: true })
+      } else {
+        this.setState({ escape: false });
+      };
       let userPayload = {
         room_id: this.props.id,
-        excape: this.state.escape
+        escape: this.state.escape
       };
       this.sendUsersPlay(userPayload);
     }
@@ -142,11 +145,14 @@ class RoomTile extends React.Component {
 
       let keyInRoom;
       let keyInInventory;
-      if (this.state.formToggle) {
+      let keyInRoomClose;
+      if (this.state.escape === true) {
         keyInRoom = 'hidden'
+        keyInRoomClose = 'hidden'
         keyInInventory = 'inventory-selected'
       } else {
         keyInRoom = 'key-img'
+        keyInRoomClose = 'keyclose-img'
         keyInInventory = 'hidden'
       };
 
@@ -165,6 +171,7 @@ class RoomTile extends React.Component {
                   escapeClickResponse= {escapeClickResponse}
                   keyInRoom= {keyInRoom}
                   keyInInventory= {keyInInventory}
+                  keyInRoomClose= {keyInRoomClose}
                   current_user= {this.state.current_user}
                 />
                 <div className='room-stats'>
@@ -175,7 +182,7 @@ class RoomTile extends React.Component {
                     <li className= 'inventory-title'>Inventory</li>
                   </ul>
                   <div className= 'inventory'>
-                    <img className={keyInInventory} src={assetHelper["key.png"]}></img>
+                    <img className={keyInInventory} src={assetHelper["keyclose.png"]}></img>
                   </div>
                 </div>
             </div>
