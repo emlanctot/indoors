@@ -8,12 +8,18 @@ class RoomTile extends React.Component {
     this.state = {
       plant_health: this.props.plant_health,
       cleanliness: this.props.cleanliness,
+      escape: this.props.escape,
       current_user: '',
       plantStatus: '',
-      cleanStatus: ''
+      cleanStatus: '',
+      keyInRoom: 'key-img click',
+      keyInInventory: 'hidden',
+      keyInRoomClose: 'keyclose-img click'
     }
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
+       this.handleEscape = this.handleEscape.bind(this);
+       this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
 
     }
 
@@ -30,52 +36,73 @@ class RoomTile extends React.Component {
     handleWater() {
       let value = this.state.plant_health += 1;
       this.setState({ plant_health: value });
-      let waterPayload = {
+      let userPayload = {
         room_id: this.props.id,
         plant_health: this.state.plant_health
       };
-      this.sendWater(waterPayload);
+      this.sendUsersPlay(userPayload);
       this.getPlantStatuses();
     }
 
-    sendWater(waterPayload) {
+
+    sendUsersPlay(userPayload) {
       let roomId = this.props.id;
       let creator = this.props.creator;
-      console.log(waterPayload)
       fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(waterPayload)
+        body: JSON.stringify(userPayload)
       })
+      .then((response) => {
+        this.getKeyStatus();
+      })
+    }
+
+    handleUnlockedDoor() {
+      let roomId = this.props.id;
+      let creator = this.props.creator;
+      return fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+      })
+    }
+
+    handleEscape() {
+      this.setState({ escape: true })
+      let userPayload = {
+        room_id: this.props.id,
+        escape: true
+      };
+      this.sendUsersPlay(userPayload);
+      this.getKeyStatus();
+    }
+
+    getKeyStatus() {
+      if (this.state.escape === true) {
+        this.setState({
+          keyInRoom: 'hidden',
+          keyInRoomClose: 'hidden',
+          keyInInventory: 'inventory-selected'
+        })
+      }
     }
 
     handleClean() {
       let value = this.state.cleanliness += 1;
       this.setState({ cleanliness: value });
-      let cleanPayload = {
+      let userPayload = {
         room_id: this.props.id,
         cleanliness: this.state.cleanliness
       };
-      this.sendClean(cleanPayload);
+      this.sendUsersPlay(userPayload);
       this.getCleanStatuses();
-    }
-
-
-    sendClean(cleanPayload) {
-      let roomId = this.props.id;
-      let creator = this.props.creator;
-      console.log(cleanPayload)
-      fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(cleanPayload)
-      })
     }
 
     componentDidMount() {
       this.getPlantStatuses();
       this.getUserData();
       this.getCleanStatuses();
+      this.getKeyStatus();
     }
 
     getPlantStatuses() {
@@ -94,7 +121,7 @@ class RoomTile extends React.Component {
       } else if (this.state.plant_health == 3){
         this.setState({ plantStatus: 'the ficus desparately needs to be watered.' });
       } else if (this.state.plant_health == 2){
-        this.setState({ plantStatus: 'Someone has abandoned the ficus.' });
+        this.setState({ plantStatus: 'someone has abandoned the ficus.' });
       } else if (this.state.plant_health == 1){
         this.setState({ plantStatus: 'the ficus is dying.' });
       } else {
@@ -104,25 +131,25 @@ class RoomTile extends React.Component {
 
     getCleanStatuses() {
       if (this.state.cleanliness > 8) {
-        this.setState({ cleanStatus: 'this room is spotless.' });
+        this.setState({ cleanStatus: 'the room is spotless.' });
       } else if (this.state.cleanliness == 8){
-        this.setState({ cleanStatus: 'this room is very clean.' });
+        this.setState({ cleanStatus: 'the room is very clean.' });
       } else if (this.state.cleanliness == 7){
-        this.setState({ cleanStatus: 'his room is slightly disorganized.' });
+        this.setState({ cleanStatus: 'the room is slightly disorganized.' });
       } else if (this.state.cleanliness == 6){
-        this.setState({ cleanStatus: 'this room is cluttered.' });
+        this.setState({ cleanStatus: 'the room is cluttered.' });
       } else if (this.state.cleanliness == 5){
-        this.setState({ cleanStatus: 'this room needs to be cleaned.' });
+        this.setState({ cleanStatus: 'the room needs to be cleaned.' });
       } else if (this.state.cleanliness == 4){
         this.setState({ cleanStatus: 'there are cobwebs.' });
       } else if (this.state.cleanliness == 3){
-        this.setState({ cleanStatus: 'this room desparately needs to be cleaned.' });
+        this.setState({ cleanStatus: 'the room desparately needs to be cleaned.' });
       } else if (this.state.cleanliness == 2){
-        this.setState({ cleanStatus: 'this room smells horribly.' });
+        this.setState({ cleanStatus: 'the room smells horribly.' });
       } else if (this.state.cleanliness == 1){
         this.setState({ cleanStatus: 'you can hear mice in the walls' });
       } else {
-        this.setState({ cleanStatus: 'this room is uninhabitable' });
+        this.setState({ cleanStatus: 'the room is uninhabitable' });
       };
     };
 
@@ -130,18 +157,18 @@ class RoomTile extends React.Component {
     render() {
       let cleanClickResponse;
       let waterClickResponse;
+      let escapeClickResponse;
+      let unlockedDoorResponse;
       if (this.state.current_user.id === this.props.creator){
         waterClickResponse = this.handleWater
         cleanClickResponse = this.handleClean
+        escapeClickResponse = this.handleEscape
+        unlockedDoorResponse = this.handleUnlockedDoor
       } else {
         waterClickResponse = null;
         cleanClickResponse = null;
-      }
-      let statusBar;
-      if (this.state.current_user.id === this.props.creator){
-
-      } else {
-        statusBar = null;
+        escapeClickResponse = null;
+        unlockedDoorResponse = null;
       }
 
       return(
@@ -156,14 +183,23 @@ class RoomTile extends React.Component {
                   plant_health= {this.state.plant_health}
                   waterClickResponse= {waterClickResponse}
                   cleanClickResponse= {cleanClickResponse}
+                  escapeClickResponse= {escapeClickResponse}
+                  keyInRoom= {this.state.keyInRoom}
+                  keyInRoomClose= {this.state.keyInRoomClose}
+                  handleUnlockedDoor= {unlockedDoorResponse}
                   current_user= {this.state.current_user}
+                  escape= {this.state.escape}
                 />
                 <div className='room-stats'>
                 <h4 className= 'room-name'>{this.props.name}</h4>
                   <ul>
                     <li className= 'status-items'>{this.state.plantStatus}</li>
                     <li className= 'status-items'>{this.state.cleanStatus}</li>
+                    <li className= 'inventory-title'>Inventory</li>
                   </ul>
+                  <div className= 'inventory'>
+                    <img className={this.state.keyInInventory} src={assetHelper["keyclose.png"]}></img>
+                  </div>
                 </div>
             </div>
           </div>

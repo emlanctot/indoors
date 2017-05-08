@@ -24,6 +24,25 @@
   font-size: 12px;
   margin-left: 20px;
 }
+.inventory-title {
+  padding: 10px 5px 3px 2px;
+  font-size: 12px;
+  margin-left: 20px;
+  font-family: 'Fira Mono', monospace;
+  text-align: right;
+}
+.inventory {
+  margin-top: -2px;
+  border: 1px solid black;
+  height: 200px;
+  font-size: 12px;
+  margin-left: 20px;
+  background: white;
+}
+.inventory-selected {
+  margin-left: 65px;
+  margin-top: 40px;
+}
 .room-wrapper {
   margin-top:20px;
   display: block;
@@ -35,6 +54,12 @@
   position: absolute;
   margin-top: 400px;
   font-size: 24px;
+}
+.left:focus {
+  outline:0;
+}
+.right:focus {
+  outline:0;
 }
 .left:hover {
   -moz-transform: translate(-4px);

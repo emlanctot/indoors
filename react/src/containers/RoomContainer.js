@@ -18,9 +18,11 @@ class RoomContainer extends React.Component {
               plant_health= {room.plant_health}
               cleanliness= {room.cleanliness}
               creator= {room.user_id}
+              escape= {room.escape}
             />
         )
       })
+
       return(
         <div className='room-container'>
           {rooms}

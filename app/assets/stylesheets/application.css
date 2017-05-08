@@ -36,8 +36,10 @@
 body {
   background-color: #f9ecda;
 }
+.click:hover {
+  cursor:pointer;
+}
 .room-container {
-
 }
 .nav-bar {
   width: 100%;

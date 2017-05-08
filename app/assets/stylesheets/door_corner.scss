@@ -10,21 +10,24 @@
   width: 520px;
   height: 390px;
   border: 5px solid #816535;
-  // display: block;
-  // margin-left: auto;
-  // margin-right: auto;
 }
 .door-img {
   position:absolute;
   margin-left: 170px;
-  margin-top: 8px;
+  margin-top: 17px;
 }
 .broom-img {
   position:absolute;
-  margin-left: 300px;
-  margin-top: 110px;
+  margin-left: 310px;
+  margin-top: 122px;
 }
 .broom-img:hover {
-  -webkit-filter: drop-shadow(5px 0px 5px #222);
-  filter: drop-shadow(5px 0px 5px #222);
+  -webkit-transition: all 75ms ease;
+  -moz-transition: all 75ms ease;
+  -ms-transition: all 75ms ease;
+  -o-transition: all 75ms ease;
+  transition: all 75ms ease;
+  transition: all 75ms ease;
+  -webkit-filter: drop-shadow(2px 0px 0px #737373);
+  filter: drop-shadow(2px 0px 0px #737373);
 }

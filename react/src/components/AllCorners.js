@@ -14,7 +14,10 @@ class AllCorners extends React.Component {
       clutterCornerToggle: false,
       doorCornerToggle: true,
       keyLookToggle: false,
-      plant_health: this.props.plant_health
+      plant_health: this.props.plant_health,
+      escape: this.props.escape,
+      keyInRoom: this.props.keyInRoom,
+      keyInRoomClose: this.props.keyInRoomClose
     }
     this.handleBedCornerClick = this.handleBedCornerClick.bind(this);
     this.handlePlantCornerClick = this.handlePlantCornerClick.bind(this);
@@ -136,6 +139,7 @@ class AllCorners extends React.Component {
             handlePlantCornerClick = {this.handlePlantCornerClick}
             handleKeyLookClick = {this.handleKeyLookClick}
             creator= {this.state.current_user}
+            keyInRoom= {this.props.keyInRoom}
           />
         )
       }
@@ -147,6 +151,8 @@ class AllCorners extends React.Component {
             id= {this.props.id}
             handleClutterCornerClick = {this.handleClutterCornerClick}
             creator= {this.props.current_user}
+            escapeClickResponse= {this.props.escapeClickResponse}
+            keyInRoomClose= {this.props.keyInRoomClose}
           />
         )
       }
@@ -160,6 +166,8 @@ class AllCorners extends React.Component {
             handlePlantCornerClick = {this.handlePlantCornerClick}
             handleClean = {this.props.cleanClickResponse}
             creator= {this.props.current_user}
+            escape= {this.state.escape}
+            handleUnlockedDoor= {this.props.handleUnlockedDoor}
           />
         )
       }

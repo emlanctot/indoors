@@ -12,7 +12,7 @@ class PlantCornerTile extends React.Component {
         <div className='plant-tile'>
           <button className= 'left' onClick={this.props.handleClutterCornerClick}>&larr;</button>
           <button className= 'right' onClick={this.props.handleDoorCornerClick}>&rarr;</button>
-          <img onClick={this.props.handleWater} className="plant-img" src={assetHelper["plant.png"]}></img>
+          <img onClick={this.props.handleWater} className="plant-img click" src={assetHelper["plant.png"]}></img>
           <img className="window-img" src={assetHelper["window.png"]}></img>
         </div>
 

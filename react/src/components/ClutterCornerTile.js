@@ -14,9 +14,9 @@ class ClutterCornerTile extends React.Component {
           <button className= 'left' onClick={this.props.handleBedCornerClick}>&larr;</button>
           <button className= 'right' onClick={this.props.handlePlantCornerClick}>&rarr;</button>
           <img className="cupboard-img" src={assetHelper["cupboard.png"]}></img>
-          <img className="chair-img" src={assetHelper["chair.png"]}></img>
-          <img className="book-img" src={assetHelper["book.png"]}></img>
-          <img className="key-img" onClick={this.props.handleKeyLookClick} src={assetHelper["key.png"]}></img>
+          <img className="chair-img click" src={assetHelper["chair.png"]}></img>
+          <img className="book-img click" src={assetHelper["book.png"]}></img>
+          <img className={this.props.keyInRoom} onClick={this.props.handleKeyLookClick} src={assetHelper["key.png"]}></img>
         </div>
 
 
