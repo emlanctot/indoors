@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create, :update]
+  skip_before_action :verify_authenticity_token
 
   def index
     @room = Room.all
@@ -38,8 +38,17 @@ class Api::V1::RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
+    if @room.destroy
+      render json: @room
+    end
+  end
+
+
 private
   def room_params
-    params.permit(:id, :user_id, :plant_health, :cleanliness, :name, :created_at, :updated_at)
+    params.require(:room).permit(:id, :user_id, :plant_health, :cleanliness, :name, :escape, :created_at, :updated_at)
   end
 end
