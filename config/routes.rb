@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :profiles
       resources :rooms, only: [:index, :create, :new, :show, :update, :edit, :destroy]
     end
   end
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index, :update, :destroy] do
+      resources :users, only: [:index, :update, :destroy, :show] do
         resources :rooms, only: [:index, :create, :new, :show, :update, :edit, :destroy]
       end
     end

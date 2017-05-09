@@ -5,6 +5,7 @@ import RoomContainer from './containers/RoomContainer';
 import BedCornerTile from './components/BedCornerTile';
 import DoorCornerTile from './components/DoorCornerTile';
 import NeighborsContainer from './containers/NeighborsContainer';
+import ProfileContainer from './containers/ProfileContainer';
 
 const Root = () => {
   return(
@@ -12,6 +13,7 @@ const Root = () => {
 
         <Route path="/" component={NavContainer}>
           <Route path='rooms' component={NeighborsContainer} />
+          <Route path='profiles' component={ProfileContainer} />
         </Route>
 
       </Router>

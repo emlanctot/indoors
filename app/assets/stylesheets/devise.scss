@@ -1,0 +1,18 @@
+@import "settings";
+
+.alert {
+  position: relative;
+  width: 40%;
+  margin: 20px auto;
+}
+.alert-success {
+  position:absolute;
+  text-align: center;
+  margin-top: 150px;
+  left: 50%;
+  margin-left: -50px;
+  border: 2px solid black;
+  width: 200px;
+  z-index: 6;
+  background: white;
+}
