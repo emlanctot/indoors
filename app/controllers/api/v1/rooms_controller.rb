@@ -29,7 +29,6 @@ class Api::V1::RoomsController < ApplicationController
     end
   end
 
-
   def update
     @room = Room.find(params[:id])
     @room.update(room_params)

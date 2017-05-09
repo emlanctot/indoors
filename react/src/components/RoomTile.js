@@ -122,8 +122,6 @@ class RoomTile extends React.Component {
         this.setState({ plantStatus: 'the ficus desparately needs to be watered.' });
       } else if (this.state.plant_health == 2){
         this.setState({ plantStatus: 'someone has abandoned the ficus.' });
-      } else if (this.state.plant_health == 1){
-        this.setState({ plantStatus: 'the ficus is dying.' });
       } else {
         this.setState({ plantStatus: 'the ficus is near death.' });
       };
@@ -145,9 +143,7 @@ class RoomTile extends React.Component {
       } else if (this.state.cleanliness == 3){
         this.setState({ cleanStatus: 'the room desparately needs to be cleaned.' });
       } else if (this.state.cleanliness == 2){
-        this.setState({ cleanStatus: 'the room smells horribly.' });
-      } else if (this.state.cleanliness == 1){
-        this.setState({ cleanStatus: 'you can hear mice in the walls' });
+        this.setState({ cleanStatus: 'you can hear mice in the walls.' });
       } else {
         this.setState({ cleanStatus: 'the room is uninhabitable' });
       };
