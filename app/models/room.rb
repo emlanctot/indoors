@@ -30,4 +30,6 @@ class Room < ActiveRecord::Base
     self.save
   end
 
+
+
 end
