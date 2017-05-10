@@ -5,7 +5,7 @@ const NewRoomForm = (props) => {
     <div className="column row">
       <div>
       </div>
-      <form onSubmit={props.handleSubmit} className={props.className}>
+      <form onSubmit={props.handleSubmit} className= {props.className}>
         <label>Where is the room?</label>
         <input name="name" type="text" onChange={props.nameChange} value={props.name}/>
 

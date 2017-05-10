@@ -7,6 +7,10 @@ class RoomsController < ApplicationController
     @room = Room.where(user_id: current_user.id)
   end
 
+  def new
+    @room = Room.new
+  end
+
   private
 
   def room_params

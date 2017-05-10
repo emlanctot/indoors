@@ -12,7 +12,8 @@ class NavContainer extends React.Component {
         name: '',
         current_user: '',
         formToggle: false,
-        rooms: []
+        rooms: [],
+        room_id: null
       };
       this.handleNameChange = this.handleNameChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,7 +57,10 @@ class NavContainer extends React.Component {
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData)
-        this.setState({ rooms: responseData });
+        this.setState({
+          rooms: responseData,
+          room_id: responseData[0].id
+         });
       });
   }
 
@@ -101,6 +105,7 @@ class NavContainer extends React.Component {
     } else {
       className = 'hidden'
     };
+
     return(
       <div>
         <NewRoomForm
@@ -113,17 +118,14 @@ class NavContainer extends React.Component {
         <div className="menu">
           <ul className="nav-bar">
             <li className="active"><Link to='/rooms'>NEIGHBORS</Link></li>
-            <li className="active"><Link to='/'>ROOM</Link></li>
+            <li className="active"><Link to={`/rooms/${this.state.room_id}`}>ROOM</Link></li>
             <li className="active"><Link to='/profiles'>PROFILE</Link></li>
             <li onClick={this.handleFormButtonClick} className="active"><Link to='#'>CREATE</Link></li>
           </ul>
         </div>
         <hr className= 'nav-line'/>
         <div>
-          <RoomContainer
-            rooms= {this.state.rooms}
-            current_user= {this.state.current_user}
-          />
+
           {this.props.children}
         </div>
       </div>
