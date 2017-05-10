@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
-class ProfileContainer extends Component{
+class ProfileContainer extends React.Component{
   constructor(props){
     super(props);
     this.state = {
