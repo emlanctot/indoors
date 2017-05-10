@@ -6,7 +6,7 @@ class Api::V1::ProfilesController < ApplicationController
     @current_user = current_user
 
     respond_to do |format|
-      format.json  { render :json => {:user => @current_user }}
+      format.json  { render :json => {:user => @current_user, :room => @room }}
     end
   end
 

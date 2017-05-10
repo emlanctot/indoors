@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :rooms
-  resources :profiles, only: [:index, :show]
+  resources :profiles
 
   namespace :api do
     namespace :v1 do

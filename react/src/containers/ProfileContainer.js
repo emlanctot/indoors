@@ -5,7 +5,8 @@ class ProfileContainer extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      room: {}
     }
   }
 
@@ -17,11 +18,18 @@ class ProfileContainer extends React.Component{
     fetch(`/api/v1/profiles`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ user: responseData.user })
+        this.setState({ user: responseData.user, room: responseData.room })
     });
   }
 
+
   render() {
+    let roomName;
+    if (this.state.room.length === 0) {
+      roomName = 'You currently don\'t have a room.'
+    } else {
+      roomName = this.state.room.name
+    }
 
     return(
       <div>
@@ -29,6 +37,7 @@ class ProfileContainer extends React.Component{
 
             <div className="small-6 large-6 columns" id="info-area">
               <h3> {this.state.user.email}</h3>
+              <h5>{roomName}</h5>
             </div>
 
         </div>

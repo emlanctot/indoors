@@ -17,6 +17,24 @@ class Api::V1::RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+
+  def new
+    @room = Room.new
+    # render json: @room
+  end
+
+  def create
+    if user_signed_in?
+      @room = Room.create(room_params)
+      @room.user_id = current_user.id
+      if @room.save!
+        render json: @room
+      end
+    else
+      flash[:error] = "Error"
+    end
+  end
+
   def create
     if user_signed_in?
       @room = Room.create(room_params)
