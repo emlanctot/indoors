@@ -16,6 +16,11 @@ class RoomFormContainer extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.getUserData();
+
+  }
+
   sendInput(roomPayload) {
     console.log(roomPayload)
     fetch(`/api/v1/users/${this.state.current_user.id}/rooms.json`, {

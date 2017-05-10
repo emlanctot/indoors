@@ -15,40 +15,13 @@ class NavContainer extends React.Component {
         rooms: [],
         room_id: null
       };
-      this.handleNameChange = this.handleNameChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleFormButtonClick = this.handleFormButtonClick.bind(this);
-  }
 
-  sendInput(roomPayload) {
-    console.log(roomPayload)
-    fetch(`/api/v1/users/${this.state.current_user.id}/rooms.json`, {
-      credentials: 'same-origin',
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(roomPayload)
-    })
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ rooms: [...this.state.rooms, responseData] });
-    });
-  }
-
-  handleClearForm() {
-    this.setState({
-      name: ''
-    });
-  }
-
-  handleNameChange(event){
-    this.setState({ name: event.target.value });
   }
 
 
   componentDidMount() {
     this.getUserData();
     this.getData();
-    // this.getRoomsData();
   }
 
 
@@ -56,11 +29,12 @@ class NavContainer extends React.Component {
     fetch(`/api/v1/rooms/${this.props.params.id}`, {credentials: 'same-origin'})
       .then(response => response.json())
       .then(responseData => {
-        console.log(responseData)
-        this.setState({
-          rooms: responseData,
-          room_id: responseData[0].id
-         });
+        if (responseData[0].id !== null){
+          this.setState({
+            rooms: responseData,
+            room_id: responseData[0].id
+           });
+         }
       });
   }
 
@@ -77,48 +51,23 @@ class NavContainer extends React.Component {
   }
 
 
-  handleSubmit(event) {
-  event.preventDefault();
-    let roomPayload = {
-      name: this.state.name,
-      user_id: this.state.current_user.id
-    };
-    this.sendInput(roomPayload);
-    this.handleClearForm();
-  }
-
-  handleFormButtonClick() {
-    if (this.state.formToggle === false) {
-      this.setState({ formToggle: true })
-    } else {
-      this.setState({ formToggle: false })
-    }
-  }
-
-
-
   render() {
 
-    let className;
-    if (this.state.formToggle) {
-      className = 'selected'
+    let roomLink;
+    if (this.state.rooms.length < 1) {
+      roomLink = `/users/${this.state.current_user.id}/rooms/new`
     } else {
-      className = 'hidden'
-    };
+      roomLink= `/rooms/${this.state.room_id}`
+    }
+
 
     return(
       <div>
-        <NewRoomForm
-          className = {className}
-          handleFormButtonClick = {this.handleFormButtonClick}
-          name = {this.state.name}
-          nameChange = {this.handleNameChange}
-          handleSubmit = {this.handleSubmit}
-        />
+
         <div className="menu">
           <ul className="nav-bar">
             <li className="active"><Link to='/rooms'>NEIGHBORS</Link></li>
-            <li className="active"><Link to={`/rooms/${this.state.room_id}`}>ROOM</Link></li>
+            <li className="active"><Link to={roomLink}>ROOM</Link></li>
             <li className="active"><Link to='/profiles'>PROFILE</Link></li>
             <li onClick={this.handleFormButtonClick} className="active"><Link to='#'>CREATE</Link></li>
           </ul>

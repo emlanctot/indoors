@@ -20,6 +20,7 @@ class Api::V1::RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    # render json: @room
   end
 
   def create
