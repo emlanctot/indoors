@@ -9,20 +9,20 @@
   </head>
 
   <body>
-    <div class="navbar menu align-right hidden">
-      <ul>
-        <li>
+
           <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.email %></strong>.
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <div class="logged-in">
+              Logged in as <%= current_user.email %>.
+              <%= link_to 'EDIT', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            </div>
           <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-          <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <div class="logged-out">
+              <%= link_to "SIGN UP", new_user_registration_path, :class => 'sign-in'  %> |
+              <%= link_to "LOGIN", new_user_session_path, :class => 'sign-up'  %>
+            </div>
           <% end %>
-        </li>
-      </ul>
-    </div>
+
     <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
     <% end %>

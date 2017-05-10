@@ -114,7 +114,7 @@ class NavContainer extends React.Component {
           <ul className="nav-bar">
             <li className="active"><Link to='/rooms'>NEIGHBORS</Link></li>
             <li className="active"><Link to='/'>ROOM</Link></li>
-            <li className="active"><Link to='#'>PROFILE</Link></li>
+            <li className="active"><Link to='/profiles'>PROFILE</Link></li>
             <li onClick={this.handleFormButtonClick} className="active"><Link to='#'>CREATE</Link></li>
           </ul>
         </div>

@@ -63,9 +63,7 @@ body {
 a {
   color: black;
 }
-a:active-page {
-  text-decoration: line-through;
-}
+
 li {
   /*padding-right: 10px;*/
   font-family: 'Fira Mono', monospace;
@@ -83,5 +81,11 @@ hr {
   margin-top: 25px;
 }
 h2 {
+  font-family: 'Merriweather', serif;
+}
+h3 {
+  font-family: 'Merriweather', serif;
+}
+h5 {
   font-family: 'Merriweather', serif;
 }

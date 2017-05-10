@@ -1,10 +1,11 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<div class='devise-form'>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
+  <div class='errors'><%= devise_error_messages! %></div>
+  <h3>Edit <%= resource_name.to_s.humanize %></h3>
+  <br />
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -13,21 +14,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <em>(we need your current password to confirm your changes)</em>
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
@@ -36,8 +36,9 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h5>Cancel my account</h5>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>
