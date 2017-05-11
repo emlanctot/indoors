@@ -61,10 +61,17 @@ class RoomTile extends React.Component {
     handleUnlockedDoor() {
       let roomId = this.props.id;
       let creator = this.props.creator;
-      return fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" }
-      })
+
+      if (this.state.escape === false) {
+        window.alert("This door is locked, you need a key to open this door.");
+      } else {
+        if (window.confirm('This door is unlocked, are you sure you want to leave?')){
+          return fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+          })
+        }
+      }
     }
 
     handleEscape() {
@@ -159,12 +166,10 @@ class RoomTile extends React.Component {
         waterClickResponse = this.handleWater
         cleanClickResponse = this.handleClean
         escapeClickResponse = this.handleEscape
-        unlockedDoorResponse = this.handleUnlockedDoor
       } else {
         waterClickResponse = null;
         cleanClickResponse = null;
         escapeClickResponse = null;
-        unlockedDoorResponse = null;
       }
 
       return(
@@ -182,7 +187,7 @@ class RoomTile extends React.Component {
                   escapeClickResponse= {escapeClickResponse}
                   keyInRoom= {this.state.keyInRoom}
                   keyInRoomClose= {this.state.keyInRoomClose}
-                  handleUnlockedDoor= {unlockedDoorResponse}
+                  handleUnlockedDoor= {this.handleUnlockedDoor}
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
                 />

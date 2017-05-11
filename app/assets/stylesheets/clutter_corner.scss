@@ -1,7 +1,7 @@
 @import "settings";
 
 .strange-room-wrapper .clutter-tile {
-  background-color: white;
+  background-color: #f2f2f2;
   background-image: url("corner2.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -42,7 +42,7 @@
   filter: drop-shadow(1px 1px 0px #737373);
 }
 .room-wrapper .clutter-tile {
-  background-color: white;
+  background-color: #f2f2f2;
   background-image: url("corner2.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -67,12 +67,12 @@
 .room-wrapper .book-img {
   position:absolute;
   margin-left: 90px;
-  margin-top: 107px;
-  width: 38px
+  margin-top: 105px;
+  width: 40px
 }
 .room-wrapper .key-img {
   position:absolute;
   margin-left: 125px;
-  margin-top: 115px;
-  width: 10px;
+  margin-top: 111px;
+  width: 30px;
 }
