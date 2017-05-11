@@ -115,6 +115,8 @@ class AllCorners extends React.Component {
             plantHealth = {this.state.plant_health}
             creator= {this.props.current_user}
             leaves= {this.props.leaves}
+            cobweb1= {this.props.cobweb1}
+            cobweb2= {this.props.cobweb2}
           />
         )
       }
@@ -127,6 +129,8 @@ class AllCorners extends React.Component {
           handleClutterCornerClick = {this.handleClutterCornerClick}
           handleDoorCornerClick = {this.handleDoorCornerClick}
           creator= {this.props.current_user}
+          cobweb1= {this.props.cobweb1}
+          cobweb2= {this.props.cobweb2}
         />
         )
       }
@@ -141,6 +145,8 @@ class AllCorners extends React.Component {
             handleKeyLookClick = {this.handleKeyLookClick}
             creator= {this.state.current_user}
             keyInRoom= {this.props.keyInRoom}
+            cobweb1= {this.props.cobweb1}
+            cobweb2= {this.props.cobweb2}
           />
         )
       }
@@ -170,6 +176,7 @@ class AllCorners extends React.Component {
             escape= {this.state.escape}
             handleUnlockedDoor= {this.props.handleUnlockedDoor}
             cobweb1= {this.props.cobweb1}
+            cobweb2= {this.props.cobweb2}
           />
         )
       }

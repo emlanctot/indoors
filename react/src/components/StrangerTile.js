@@ -15,7 +15,8 @@ class StrangerTile extends React.Component {
       keyInInventory: 'hidden',
       keyInRoomClose: 'keyclose-img click',
       leaves: null,
-      cobweb1: null
+      cobweb1: null,
+      cobweb2: null
     }
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
@@ -148,37 +149,58 @@ class StrangerTile extends React.Component {
 
     getCleanStatuses() {
       if (this.state.cleanliness > 8) {
-        this.setState({ cleanStatus: 'the room is spotless.' });
+        this.setState({
+          cleanStatus: 'the room is spotless.',
+          cobweb1: null,
+          cobweb2: null
+         });
       } else if (this.state.cleanliness == 8){
-        this.setState({ cleanStatus: 'the room is very clean.' });
+        this.setState({
+          cleanStatus: 'the room is very clean.',
+          cobweb1: null,
+          cobweb2: null
+        });
       } else if (this.state.cleanliness == 7){
-        this.setState({ cleanStatus: 'the room is slightly disorganized.' });
+        this.setState({
+          cleanStatus: 'the room is slightly disorganized.',
+          cobweb1: null,
+          cobweb2: null
+        });
       } else if (this.state.cleanliness == 6){
-        this.setState({ cleanStatus: 'the room is cluttered.' });
+        this.setState({
+          cleanStatus: 'the room is cluttered.',
+          cobweb1: null,
+          cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
+        });
       } else if (this.state.cleanliness == 5){
         this.setState({
           cleanStatus: 'the room needs to be cleaned.',
-          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
+          cobweb2: null
         });
       } else if (this.state.cleanliness == 4){
         this.setState({
           cleanStatus: 'there are cobwebs.',
-          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
+          cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
         });
       } else if (this.state.cleanliness == 3){
         this.setState({
           cleanStatus: 'the room is filthy.',
-          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
+          cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
         });
       } else if (this.state.cleanliness == 2){
         this.setState({
           cleanStatus: 'you can hear mice in the walls.',
-          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
+          cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
          });
       } else {
         this.setState({
           cleanStatus: 'the room is uninhabitable',
-          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
+          cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
          });
       };
     };
@@ -218,6 +240,8 @@ class StrangerTile extends React.Component {
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
                   leaves= {this.state.leaves}
+                  cobweb1= {this.state.cobweb1}
+                  cobweb2= {this.state.cobweb2}
                 />
               </div>
 
