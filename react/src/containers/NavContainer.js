@@ -54,10 +54,13 @@ class NavContainer extends React.Component {
   render() {
 
     let roomLink;
+    let linkName;
     if (this.state.rooms.length < 1) {
       roomLink = `/users/${this.state.current_user.id}/rooms/new`
+      linkName = 'MAKE A ROOM'
     } else {
       roomLink= `/rooms/${this.state.room_id}`
+      linkName = 'ROOM'
     }
 
 
@@ -66,8 +69,9 @@ class NavContainer extends React.Component {
 
         <div className="menu">
           <ul className="nav-bar">
+          <li className="active"><Link to='/'><img className='nav-key' src={assetHelper["keyclose.png"]}></img></Link></li>
             <li className="active"><Link to='/rooms'>NEIGHBORS</Link></li>
-            <li className="active"><Link to={roomLink}>ROOM</Link></li>
+            <li className="active"><Link to={roomLink}>{linkName}</Link></li>
             <li className="active"><Link to='/profiles'>PROFILE</Link></li>
           </ul>
         </div>

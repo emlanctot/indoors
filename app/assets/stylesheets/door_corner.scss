@@ -1,7 +1,7 @@
 @import "settings";
 
 .strange-room-wrapper .door-tile {
-  background-color: white;
+  background-color: #f2f2f2;
   background-image: url("corner4.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -32,7 +32,7 @@
   filter: drop-shadow(2px 0px 0px #737373);
 }
 .door-tile {
-  background-color: white;
+  background-color: #f2f2f2;
   background-image: url("corner4.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;

@@ -19,19 +19,19 @@ class RoomTile extends React.Component {
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
        this.handleEscape = this.handleEscape.bind(this);
-       this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
+      //  this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
 
     }
 
-    getUserData() {
-      fetch(`/api/v1/users`, {credentials: 'same-origin'})
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({
-          current_user: responseData.current_user
-        });
-      });
-    }
+    // getUserData() {
+    //   fetch(`/api/v1/users`, {credentials: 'same-origin'})
+    //   .then(response => response.json())
+    //   .then(responseData => {
+    //     this.setState({
+    //       current_user: responseData.current_user
+    //     });
+    //   });
+    // }
 
     handleWater() {
       let value = this.state.plant_health += 1;
@@ -47,7 +47,7 @@ class RoomTile extends React.Component {
 
     sendUsersPlay(userPayload) {
       let roomId = this.props.id;
-      let creator = this.props.creator;
+      let creator = this.props.current_user.id;
       fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -57,15 +57,22 @@ class RoomTile extends React.Component {
         this.getKeyStatus();
       })
     }
-
-    handleUnlockedDoor() {
-      let roomId = this.props.id;
-      let creator = this.props.creator;
-      return fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" }
-      })
-    }
+    //
+    // handleUnlockedDoor() {
+    //   let roomId = this.props.id;
+    //   let creator = this.props.creator;
+    //
+    //   if (this.state.escape === false) {
+    //     window.alert("This door is locked, you need a key to open this door.");
+    //   } else {
+    //     if (window.confirm('This door is unlocked, are you sure you want to leave?')){
+    //       return fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
+    //         method: "DELETE",
+    //         headers: { "Content-Type": "application/json" }
+    //       })
+    //     }
+    //   }
+    // }
 
     handleEscape() {
       this.setState({ escape: true })
@@ -100,7 +107,7 @@ class RoomTile extends React.Component {
 
     componentDidMount() {
       this.getPlantStatuses();
-      this.getUserData();
+      // this.getUserData();
       this.getCleanStatuses();
       this.getKeyStatus();
     }
@@ -159,12 +166,10 @@ class RoomTile extends React.Component {
         waterClickResponse = this.handleWater
         cleanClickResponse = this.handleClean
         escapeClickResponse = this.handleEscape
-        unlockedDoorResponse = this.handleUnlockedDoor
       } else {
         waterClickResponse = null;
         cleanClickResponse = null;
         escapeClickResponse = null;
-        unlockedDoorResponse = null;
       }
 
       return(
@@ -182,7 +187,7 @@ class RoomTile extends React.Component {
                   escapeClickResponse= {escapeClickResponse}
                   keyInRoom= {this.state.keyInRoom}
                   keyInRoomClose= {this.state.keyInRoomClose}
-                  handleUnlockedDoor= {unlockedDoorResponse}
+                  handleUnlockedDoor= {this.props.handleUnlockedDoor}
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
                 />
