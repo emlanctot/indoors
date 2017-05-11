@@ -1,0 +1,43 @@
+@import "settings";
+
+.hood {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 40px;
+  right: 0;
+  left: 0;
+}
+.strange-room-wrapper {
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+  padding-top: 30px;
+}
+.strange-room-name {
+  color: black;
+  padding-bottom: 5px;
+  font-family: 'Merriweather', serif;
+  font-weight: lighter;
+  font-size: 18px;
+  position: absolute;
+  margin-top: 380px;
+  margin-left: 170px;
+  background: white;
+  padding: 5px;
+}
+.strange-room-wrapper .left {
+  position: absolute;
+  margin-top: 355px;
+  margin-left: 7px;
+  font-size: 24px;
+}
+.strange-room-wrapper .right {
+  position: absolute;
+  margin-top: 355px;
+  margin-left: 479px;
+  font-size: 24px;
+}
+.break {
+  height: 100px;
+}

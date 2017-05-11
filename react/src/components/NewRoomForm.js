@@ -2,7 +2,7 @@ import React from 'react';
 
 const NewRoomForm = (props) => {
   return(
-    <div className="column row">
+    <div className="splash-logged">
       <div>
       </div>
       <form onSubmit={props.handleSubmit} className= {props.className}>

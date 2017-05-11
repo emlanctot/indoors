@@ -35,6 +35,10 @@
 }
 body {
   background-color: #f9ecda;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 .click:hover {
   cursor:pointer;
@@ -46,12 +50,15 @@ body {
   display: flex;
   justify-content: space-between;
   color: black;
-  font-size: 12px;
+  font-size: 14px;
   position:fixed;
   padding: 5px;
   z-index: 5;
+  top: 0;
   background-color: #f9ecda;
   border-bottom: 2px solid black;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 .selected {
   font-family: 'Fira Mono', monospace;

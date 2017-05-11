@@ -2,7 +2,7 @@ import React from 'react';
 import AllCorners from '../components/AllCorners'
 
 
-class RoomTile extends React.Component {
+class StrangerTile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -168,10 +168,9 @@ class RoomTile extends React.Component {
       }
 
       return(
-        <div className= 'row'>
-            <div className="">
-            <div className="room-wrapper">
-
+          <div className="small-12 large-6 columns">
+              <h4 className= 'strange-room-name'>{this.props.name}</h4>
+              <div className='strange-room-wrapper'>
                 <AllCorners
                   id= {this.props.id}
                   key= {this.props.id}
@@ -182,24 +181,12 @@ class RoomTile extends React.Component {
                   escapeClickResponse= {escapeClickResponse}
                   keyInRoom= {this.state.keyInRoom}
                   keyInRoomClose= {this.state.keyInRoomClose}
-                  handleUnlockedDoor= {unlockedDoorResponse}
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
                 />
-                <div className='room-stats'>
-                <h4 className= 'room-name'>{this.props.name}</h4>
-                  <ul>
-                    <li className= 'status-items'>{this.state.plantStatus}</li>
-                    <li className= 'status-items'>{this.state.cleanStatus}</li>
-                    <li className= 'inventory-title'>Inventory</li>
-                  </ul>
-                  <div className= 'inventory'>
-                    <img className={this.state.keyInInventory} src={assetHelper["keyclose.png"]}></img>
-                  </div>
-                </div>
-            </div>
+              </div>
+
           </div>
-        </div>
 
 
 
@@ -207,4 +194,4 @@ class RoomTile extends React.Component {
     }
   }
 
-export default RoomTile;
+export default StrangerTile;

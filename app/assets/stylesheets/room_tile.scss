@@ -2,7 +2,7 @@
 
 .room-stats {
   position: absolute;
-  margin-left: 520px;
+  margin-left: 610px;
 }
 .room-name {
   color: black;
@@ -10,7 +10,7 @@
   padding-bottom: 5px;
   font-family: 'Merriweather', serif;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 20px;
 }
 .room-itself {
   display: block;
@@ -26,7 +26,7 @@
 }
 .inventory-title {
   padding: 10px 5px 3px 2px;
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 20px;
   font-family: 'Fira Mono', monospace;
   text-align: right;
@@ -34,7 +34,8 @@
 .inventory {
   margin-top: -2px;
   border: 1px solid black;
-  height: 200px;
+  height: 290px;
+  width: 270px;
   font-size: 12px;
   margin-left: 20px;
   background: white;
@@ -42,17 +43,18 @@
 .inventory-selected {
   margin-left: 65px;
   margin-top: 40px;
+  width: 125px;
 }
 .room-wrapper {
-  margin-top:80px;
+  margin-top:30px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 750px;
+  width:75%;
 }
 .left {
   position: absolute;
-  margin-top: 400px;
+  margin-top: 450px;
   font-size: 24px;
 }
 .left:focus {
@@ -70,8 +72,8 @@
 }
 .right {
   position: absolute;
-  margin-top: 400px;
-  margin-left: 486px;
+  margin-top: 450px;
+  margin-left: 565px;
   font-size: 24px;
 }
 .right:hover {
