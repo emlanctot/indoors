@@ -39,6 +39,9 @@
   font-size: 12px;
   margin-left: 20px;
   background: white;
+  -moz-box-shadow: inset 2px 2px 10px #737373;
+  -webkit-box-shadow: inset 2px 2px 10px #737373;
+  box-shadow: inset 2px 2px 10px #737373;
 }
 .inventory-selected {
   margin-left: 65px;

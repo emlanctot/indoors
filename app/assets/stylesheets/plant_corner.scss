@@ -13,13 +13,18 @@
 }
 .strange-room-wrapper .window-img {
   position:absolute;
-  margin-left: 310px;
+  margin-left: 197px;
   margin-top: 10px;
 }
 .strange-room-wrapper .plant-img {
   position:absolute;
-  margin-left: 170px;
+  margin-left: 310px;
   margin-top: 45px;
+}
+.strange-room-wrapper .leaves-img {
+  position:absolute;
+  margin-left: 245px;
+  margin-top: 195px;
 }
 .plant-img:hover {
   -webkit-transition: all 75ms ease;
@@ -44,13 +49,19 @@
 }
 .room-wrapper .window-img {
   position:absolute;
-  margin-left: 310px;
+  margin-left: 220px;
   margin-top: 10px;
   width:130px;
 }
 .room-wrapper .plant-img {
   position:absolute;
-  margin-left: 170px;
+  margin-left: 350px;
   margin-top: 45px;
-  width: 110px
+  width: 115px
+}
+.room-wrapper .leaves-img {
+  position:absolute;
+  margin-left: 267px;
+  margin-top: 225px;
+  width: 301px;
 }

@@ -15,6 +15,8 @@ class DoorCornerTile extends React.Component {
         <div className='door-tile'>
           <button className= 'left' onClick={this.props.handlePlantCornerClick}>&larr;</button>
           <button className= 'right' onClick={this.props.handleBedCornerClick}>&rarr;</button>
+          {this.props.cobweb2}
+          {this.props.cobweb1}
           <img onClick={this.props.handleUnlockedDoor} className="door-img click" src={assetHelper["door.png"]}></img>
           <img onClick={this.props.handleClean} className="broom-img click" src={assetHelper["broom.png"]}></img>
         </div>
