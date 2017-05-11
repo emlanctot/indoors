@@ -22,7 +22,6 @@ class RoomContainer extends React.Component {
             />
         )
       })
-
       return(
         <div className='room-container'>
           {rooms}

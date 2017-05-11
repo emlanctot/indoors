@@ -26,13 +26,15 @@ class RoomFormContainer extends React.Component {
     fetch(`/api/v1/users/${this.state.current_user.id}/rooms.json`, {
       credentials: 'same-origin',
       method: "POST",
+      redirect: 'follow',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(roomPayload)
     })
     .then(response => response.json())
     .then(responseData => {
       this.setState({ rooms: [...this.state.rooms, responseData] });
-    });
+    })
+
   }
 
   getUserData() {

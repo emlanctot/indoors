@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const NewRoomForm = (props) => {
   return(
@@ -9,7 +10,7 @@ const NewRoomForm = (props) => {
         <label>Where is the room?</label>
         <input name="name" type="text" onChange={props.nameChange} value={props.name}/>
 
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Submitn" name="Submit" id="frm1_submit" />
       </form>
     </div>
   )
