@@ -1,5 +1,5 @@
 import React from 'react';
-import RoomContainer from './RoomContainer'
+import StrangersContainer from './StrangersContainer'
 import { Link } from 'react-router';
 
 class NeighborsContainer extends React.Component {
@@ -26,10 +26,13 @@ class NeighborsContainer extends React.Component {
     render() {
 
       return(
-        <div className='room-container'>
-          <RoomContainer
+        <div>
+        <h3 className='hood'>Neighbors</h3>
+          <StrangersContainer
             rooms= {this.state.rooms}
           />
+          <div className='break'>
+          </div>
         </div>
 
       )
