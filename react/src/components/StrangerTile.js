@@ -10,11 +10,12 @@ class StrangerTile extends React.Component {
       cleanliness: this.props.cleanliness,
       escape: this.props.escape,
       current_user: '',
-      plantStatus: '',
       cleanStatus: '',
       keyInRoom: 'key-img click',
       keyInInventory: 'hidden',
-      keyInRoomClose: 'keyclose-img click'
+      keyInRoomClose: 'keyclose-img click',
+      leaves: null,
+      cobweb1: null
     }
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
@@ -107,23 +108,41 @@ class StrangerTile extends React.Component {
 
     getPlantStatuses() {
       if (this.state.plant_health > 8) {
-        this.setState({ plantStatus: 'the ficus is flourishing.' });
+        this.setState({
+          leaves: null
+        });
       } else if (this.state.plant_health == 8){
-        this.setState({ plantStatus: 'the ficus is healthy.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves1.png"]}></img>
+         });
       } else if (this.state.plant_health == 7){
-        this.setState({ plantStatus: 'the ficus is doing great.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves2.png"]}></img>
+        });
       } else if (this.state.plant_health == 6){
-        this.setState({ plantStatus: 'the ficus is doing well.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves3.png"]}></img>
+        });
       } else if (this.state.plant_health == 5){
-        this.setState({ plantStatus: 'the ficus is doing ok.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves4.png"]}></img>
+        });
       } else if (this.state.plant_health == 4){
-        this.setState({ plantStatus: 'the ficus is ok but concerned.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves5.png"]}></img>
+         });
       } else if (this.state.plant_health == 3){
-        this.setState({ plantStatus: 'the ficus desparately needs water.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves6.png"]}></img>
+         });
       } else if (this.state.plant_health == 2){
-        this.setState({ plantStatus: 'someone has abandoned the ficus.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves7.png"]}></img>
+         });
       } else {
-        this.setState({ plantStatus: 'the ficus is near death.' });
+        this.setState({
+          leaves: <img className="leaves-img" src={assetHelper["leaves8.png"]}></img>
+        });
       };
     };
 
@@ -137,15 +156,30 @@ class StrangerTile extends React.Component {
       } else if (this.state.cleanliness == 6){
         this.setState({ cleanStatus: 'the room is cluttered.' });
       } else if (this.state.cleanliness == 5){
-        this.setState({ cleanStatus: 'the room needs to be cleaned.' });
+        this.setState({
+          cleanStatus: 'the room needs to be cleaned.',
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+        });
       } else if (this.state.cleanliness == 4){
-        this.setState({ cleanStatus: 'there are cobwebs.' });
+        this.setState({
+          cleanStatus: 'there are cobwebs.',
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+        });
       } else if (this.state.cleanliness == 3){
-        this.setState({ cleanStatus: 'the room is filthy.' });
+        this.setState({
+          cleanStatus: 'the room is filthy.',
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+        });
       } else if (this.state.cleanliness == 2){
-        this.setState({ cleanStatus: 'you can hear mice in the walls.' });
+        this.setState({
+          cleanStatus: 'you can hear mice in the walls.',
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+         });
       } else {
-        this.setState({ cleanStatus: 'the room is uninhabitable' });
+        this.setState({
+          cleanStatus: 'the room is uninhabitable',
+          cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>
+         });
       };
     };
 
@@ -183,6 +217,7 @@ class StrangerTile extends React.Component {
                   keyInRoomClose= {this.state.keyInRoomClose}
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
+                  leaves= {this.state.leaves}
                 />
               </div>
 

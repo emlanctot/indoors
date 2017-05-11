@@ -114,6 +114,7 @@ class AllCorners extends React.Component {
             handleWater = {this.props.waterClickResponse}
             plantHealth = {this.state.plant_health}
             creator= {this.props.current_user}
+            leaves= {this.props.leaves}
           />
         )
       }
@@ -168,6 +169,7 @@ class AllCorners extends React.Component {
             creator= {this.props.current_user}
             escape= {this.state.escape}
             handleUnlockedDoor= {this.props.handleUnlockedDoor}
+            cobweb1= {this.props.cobweb1}
           />
         )
       }

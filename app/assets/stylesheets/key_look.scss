@@ -27,3 +27,18 @@
   -webkit-filter: drop-shadow(2px 2px 0px #737373);
   filter: drop-shadow(2px 2px 0px #737373);
 }
+.strange-room-wrapper .key-tile {
+  background-color: #f2f2f2;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 520px;
+  height: 390px;
+  border: 5px solid #816535;
+
+}
+.strange-room-wrapper .keyclose-img {
+  margin-left: 230px;
+  margin-top: 180px;
+}
