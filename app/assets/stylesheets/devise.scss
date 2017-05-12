@@ -30,11 +30,11 @@
   // box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.4);
 }
 .navbar-link:hover {
-  text-decoration: line-through;
+  font-style: italic;
   color:black;
 }
 .navbar-link:focus {
-  text-decoration: line-through;
+  font-style: italic;
   color:black;
 }
 .logged-out {
