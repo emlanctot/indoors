@@ -17,7 +17,8 @@ class RoomShowContainer extends React.Component {
         plant_health: '',
         cleanliness: '',
         creator: '',
-        escape: ''
+        escape: '',
+        moods: ''
       };
       this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
   }
@@ -65,7 +66,8 @@ class RoomShowContainer extends React.Component {
           plant_health: responseData.room[0].plant_health,
           cleanliness: responseData.room[0].cleanliness,
           creator: responseData.room[0].user_id,
-          escape: responseData.room[0].escape
+          escape: responseData.room[0].escape,
+          moods: responseData.room[0].moods
         })
       }
     });
@@ -97,6 +99,7 @@ class RoomShowContainer extends React.Component {
           cleanliness= {this.state.cleanliness}
           creator= {this.state.user_id}
           escape= {this.state.escape}
+          moods= {this.state.moods}
           current_user= {this.state.current_user}
           handleUnlockedDoor= {this.handleUnlockedDoor}
           />

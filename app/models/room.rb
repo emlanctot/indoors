@@ -1,4 +1,14 @@
 class Room < ActiveRecord::Base
+
+  ALLOWED_MOODS= [
+    'Sad',
+    'Corporate',
+    'Anxious',
+    'Heroic',
+    'Calm',
+    'Happy'
+  ]
+
   belongs_to :user
 
   validates :name, presence: true
@@ -6,6 +16,7 @@ class Room < ActiveRecord::Base
   validates_uniqueness_of :user_id
   validates :plant_health, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
   validates :cleanliness, :numericality => { :greater_than => 0, :less_than_or_equal_to => 10 }
+  validates :moods, :inclusion=> { :in => ALLOWED_MOODS }
 
   def plant_decline
     if self.plant_health.positive?
