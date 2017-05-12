@@ -226,8 +226,8 @@ class StrangerTile extends React.Component {
 
       return(
           <div className="small-12 large-6 columns">
+            <div className='strange-room-wrapper'>
               <h4 className= 'strange-room-name'>{this.props.name}</h4>
-              <div className='strange-room-wrapper'>
                 <AllCorners
                   id= {this.props.id}
                   key= {this.props.id}
