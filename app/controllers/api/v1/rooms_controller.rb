@@ -2,7 +2,7 @@ class Api::V1::RoomsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @room = Room.all
+    @room = Room.order(id: :desc)
     render json: @room
   end
 
