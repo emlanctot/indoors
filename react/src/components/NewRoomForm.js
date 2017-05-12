@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const NewRoomForm = (props) => {
   return(
-    <div className="splash-logged">
+    <div>
       <div>
       </div>
       <form onSubmit={props.handleSubmit} className= {props.className}>

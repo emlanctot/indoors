@@ -15,7 +15,6 @@ const Root = () => {
 
         <Route path="/" component={NavContainer}>
         <IndexRoute component={RoomShowContainer} />
-          <Route path='rooms/:id' component={RoomShowContainer} />
           <Route path='users/:id/rooms/new' component={RoomFormContainer} />
           <Route path='rooms' component={NeighborsContainer} />
           <Route path='profiles' component={ProfileContainer} />

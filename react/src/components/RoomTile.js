@@ -13,16 +13,13 @@ class RoomTile extends React.Component {
       plantStatus: '',
       cleanStatus: '',
       moods: this.props.moods,
-      keyInRoom: 'key-img click',
-      keyInInventory: 'hidden',
-      keyInRoomClose: 'keyclose-img click',
       leaves: null,
       cobweb1: null,
       cobweb2: null
     }
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
-       this.handleEscape = this.handleEscape.bind(this);
+      //  this.handleEscape = this.handleEscape.bind(this);
       //  this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
 
     }
@@ -57,30 +54,17 @@ class RoomTile extends React.Component {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userPayload)
       })
-      .then((response) => {
-        this.getKeyStatus();
-      })
     }
 
-    handleEscape() {
-      this.setState({ escape: true })
-      let userPayload = {
-        room_id: this.props.id,
-        escape: true
-      };
-      this.sendUsersPlay(userPayload);
-      this.getKeyStatus();
-    }
-
-    getKeyStatus() {
-      if (this.state.escape === true) {
-        this.setState({
-          keyInRoom: 'hidden',
-          keyInRoomClose: 'hidden',
-          keyInInventory: 'inventory-selected'
-        })
-      }
-    }
+    // handleEscape() {
+    //   this.setState({ escape: true })
+    //   let userPayload = {
+    //     room_id: this.props.id,
+    //     escape: true
+    //   };
+    //   this.sendUsersPlay(userPayload);
+    //   this.getKeyStatus();
+    // }
 
     handleClean() {
       let value = this.state.cleanliness += 1;
@@ -97,7 +81,6 @@ class RoomTile extends React.Component {
       this.getPlantStatuses();
       // this.getUserData();
       this.getCleanStatuses();
-      this.getKeyStatus();
     }
 
     getPlantStatuses() {
@@ -215,7 +198,7 @@ class RoomTile extends React.Component {
       if (this.state.current_user.id === this.props.creator){
         waterClickResponse = this.handleWater
         cleanClickResponse = this.handleClean
-        escapeClickResponse = this.handleEscape
+        escapeClickResponse = this.props.handleEscape
       } else {
         waterClickResponse = null;
         cleanClickResponse = null;
@@ -235,8 +218,8 @@ class RoomTile extends React.Component {
                   waterClickResponse= {waterClickResponse}
                   cleanClickResponse= {cleanClickResponse}
                   escapeClickResponse= {escapeClickResponse}
-                  keyInRoom= {this.state.keyInRoom}
-                  keyInRoomClose= {this.state.keyInRoomClose}
+                  keyInRoom= {this.props.keyInRoom}
+                  keyInRoomClose= {this.props.keyInRoomClose}
                   handleUnlockedDoor= {this.props.handleUnlockedDoor}
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
@@ -253,7 +236,7 @@ class RoomTile extends React.Component {
                     <li className= 'inventory-title'>Inventory</li>
                   </ul>
                   <div className= 'inventory'>
-                    <img className={this.state.keyInInventory} src={assetHelper["keyclose.png"]}></img>
+                    <img className={this.props.keyInInventory} src={assetHelper["keyclose.png"]}></img>
                   </div>
                 </div>
             </div>

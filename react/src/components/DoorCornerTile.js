@@ -17,27 +17,27 @@ class DoorCornerTile extends React.Component {
     getPainting() {
       if (this.state.moods === 'Heroic') {
         this.setState({
-          painting: <img className="painting-img" src={assetHelper["vermeer.png"]}></img>
+          painting: <img className="painting-img" src={assetHelper["painting1.png"]}></img>
         });
       } else if (this.state.moods === 'Happy'){
         this.setState({
-          painting: <img className="painting-img" src={assetHelper["dali.png"]}></img>
+          painting: <img className="painting-img" src={assetHelper["painting2.png"]}></img>
         });
       } else if (this.state.moods === 'Corporate'){
         this.setState({
-          painting: <img className="painting-img" src={assetHelper["damien.png"]}></img>
+          painting: <img className="painting-img" src={assetHelper["painting3.png"]}></img>
         });
       } else if (this.state.moods === 'Anxious'){
         this.setState({
-          painting: <img className="painting-img" src={assetHelper["vangogh.png"]}></img>
+          painting: <img className="painting-img" src={assetHelper["painting4.png"]}></img>
         });
       } else if (this.state.moods === 'Sad'){
         this.setState({
-          painting: <img className="painting-img" src={assetHelper["starry.png"]}></img>
+          painting: <img className="painting-img" src={assetHelper["painting5.png"]}></img>
         });
       } else {
         this.setState({
-          painting: <img className="painting-img" src={assetHelper["hopper.png"]}></img>
+          painting: <img className="painting-img" src={assetHelper["painting6.png"]}></img>
         });
       }
     };

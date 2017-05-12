@@ -1,5 +1,15 @@
 @import "settings";
 
+.make-room {
+  font-family: 'Fira Mono', monospace;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#room-form {
+  margin-top: 30px;
+}
 .room-stats {
   position: absolute;
   margin-left: 610px;
