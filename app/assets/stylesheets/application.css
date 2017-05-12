@@ -86,7 +86,7 @@ body {
 
 }
 .active:hover {
-  text-decoration: line-through;
+  font-style: italic;
 }
 .Link {
   border: 2px solid black;
