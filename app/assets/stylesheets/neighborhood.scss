@@ -13,18 +13,23 @@
   padding-bottom: 50px;
   margin-bottom: 40px;
   padding-top: 30px;
+  position:relative;
 }
 .strange-room-name {
   color: black;
   padding-bottom: 5px;
+  text-align: center;
   font-family: 'Merriweather', serif;
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 12px;
   position: absolute;
-  margin-top: 380px;
-  margin-left: 170px;
+  margin-top: 356px;
+  margin-left: 40px;
   background: white;
   padding: 5px;
+  width: 440px;
+  z-index:4;
+  border: 1px solid black;
 }
 .strange-room-wrapper .left {
   position: absolute;

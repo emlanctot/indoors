@@ -133,54 +133,63 @@ class RoomTile extends React.Component {
 
     getCleanStatuses() {
       if (this.state.cleanliness > 8) {
+        // document.getElementById("walls").style.backgroundColor = "#f2f2f2";
         this.setState({
           cleanStatus: 'the room is spotless.',
           cobweb1: null,
           cobweb2: null
          });
-      } else if (this.state.cleanliness == 8){
+      } else if (this.state.cleanliness === 8){
+        // document.getElementById("walls").style.backgroundColor = "#f2f2f2";
         this.setState({
           cleanStatus: 'the room is very clean.',
           cobweb1: null,
           cobweb2: null
         });
-      } else if (this.state.cleanliness == 7){
+      } else if (this.state.cleanliness === 7){
+        // document.getElementById("walls").style.backgroundColor = "#D9D9D9";
         this.setState({
           cleanStatus: 'the room is slightly disorganized.',
           cobweb1: null,
           cobweb2: null
         });
-      } else if (this.state.cleanliness == 6){
+      } else if (this.state.cleanliness === 6){
+        // document.getElementById("walls").style.backgroundColor = "#BFBFBF";
         this.setState({
           cleanStatus: 'the room is cluttered.',
           cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
           cobweb2: null
         });
-      } else if (this.state.cleanliness == 5){
+      } else if (this.state.cleanliness === 5){
+        // document.getElementById("walls").style.backgroundColor = "#BFBFBF";
         this.setState({
           cleanStatus: 'the room needs to be cleaned.',
           cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
           cobweb2: null
         });
-      } else if (this.state.cleanliness == 4){
+      } else if (this.state.cleanliness === 4){
+        // document.getElementById("walls").style.backgroundColor = "#A6A6A6";
         this.setState({
           cleanStatus: 'there are cobwebs.',
           cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
           cobweb2: null
         });
-      } else if (this.state.cleanliness == 3){
+      } else if (this.state.cleanliness === 3){
+        // document.getElementById("walls").style.backgroundColor = "#A6A6A6";
         this.setState({
           cleanStatus: 'the room is filthy.',
           cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
           cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
         });
-      } else if (this.state.cleanliness == 2){
+      } else if (this.state.cleanliness === 2){
+        // document.getElementById("walls").style.backgroundColor = "#8C8C8C";
         this.setState({
           cleanStatus: 'you can hear mice in the walls.',
           cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,
           cobweb2: <img className="cobweb2-img" src={assetHelper["cobweb2.png"]}></img>
          });
       } else {
+        // document.getElementById("walls").style.backgroundColor = "#737373";
         this.setState({
           cleanStatus: 'the room is uninhabitable',
           cobweb1: <img className="cobweb1-img" src={assetHelper["cobweb1.png"]}></img>,

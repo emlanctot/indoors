@@ -27,7 +27,7 @@ class NeighborsContainer extends React.Component {
 
       return(
         <div>
-        <h3 className='hood'>Neighbors</h3>
+        <h3 className='hood'>Neighborhood</h3>
           <StrangersContainer
             rooms= {this.state.rooms}
           />

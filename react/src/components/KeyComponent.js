@@ -9,7 +9,7 @@ class KeyComponent extends React.Component {
   render() {
 
       return(
-        <div className='key-tile'>
+        <div className='key-tile' id= 'walls'>
           <button className= 'left' onClick={this.props.handleClutterCornerClick}>&larr;</button>
           <button className= 'right' onClick={this.props.handleClutterCornerClick}>&rarr;</button>
           <img className={this.props.keyInRoomClose} onClick={this.props.escapeClickResponse} src={assetHelper["keyclose.png"]}></img>

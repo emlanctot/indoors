@@ -44,7 +44,7 @@ class DoorCornerTile extends React.Component {
     render() {
 
       return(
-        <div className='door-tile'>
+        <div className='door-tile' id= 'walls'>
           <button className= 'left' onClick={this.props.handlePlantCornerClick}>&larr;</button>
           <button className= 'right' onClick={this.props.handleBedCornerClick}>&rarr;</button>
           {this.props.cobweb2}

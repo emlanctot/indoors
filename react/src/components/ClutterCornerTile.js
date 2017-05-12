@@ -9,8 +9,9 @@ class ClutterCornerTile extends React.Component {
 
   render() {
 
+
       return(
-        <div className='clutter-tile'>
+        <div className='clutter-tile' id= 'walls'>
           <button className= 'left' onClick={this.props.handleBedCornerClick}>&larr;</button>
           <button className= 'right' onClick={this.props.handlePlantCornerClick}>&rarr;</button>
           <img className="cupboard-img" src={assetHelper["cupboard.png"]}></img>
