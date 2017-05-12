@@ -177,6 +177,7 @@ class AllCorners extends React.Component {
             handleUnlockedDoor= {this.props.handleUnlockedDoor}
             cobweb1= {this.props.cobweb1}
             cobweb2= {this.props.cobweb2}
+            moods= {this.props.moods}
           />
         )
       }

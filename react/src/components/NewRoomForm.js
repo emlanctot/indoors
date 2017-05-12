@@ -10,10 +10,23 @@ const NewRoomForm = (props) => {
         <label>Where is the room?</label>
         <input name="name" type="text" onChange={props.nameChange} value={props.name}/>
 
-        <input type="submit" value="Submitn" name="Submit" id="frm1_submit" />
+        <label>Mood?
+          <select name={props.moods} value={props.moods} onChange={props.moodSelection}>
+            <option value=""></option>
+            <option value="Sad">Sad</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Anxious">Anxious</option>
+            <option value="Heroic">Heroic</option>
+            <option value="Calm">Calm</option>
+            <option value="Happy">Happy</option>
+          </select>
+        </label>
+
+        <input type="submit" value="Submit" name="Submit" />
       </form>
     </div>
   )
 }
+
 
 export default NewRoomForm;

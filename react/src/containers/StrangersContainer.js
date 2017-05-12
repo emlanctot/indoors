@@ -19,6 +19,7 @@ class StrangersContainer extends React.Component {
               cleanliness= {room.cleanliness}
               creator= {room.user_id}
               escape= {room.escape}
+              moods= {room.moods}
             />
         )
       })

@@ -12,6 +12,7 @@ class RoomTile extends React.Component {
       current_user: '',
       plantStatus: '',
       cleanStatus: '',
+      moods: this.props.moods,
       keyInRoom: 'key-img click',
       keyInInventory: 'hidden',
       keyInRoomClose: 'keyclose-img click',
@@ -242,6 +243,7 @@ class RoomTile extends React.Component {
                   leaves= {this.state.leaves}
                   cobweb1= {this.state.cobweb1}
                   cobweb2= {this.state.cobweb2}
+                  moods= {this.props.moods}
                 />
                 <div className='room-stats'>
                 <h4 className= 'room-name'>{this.props.name}</h4>

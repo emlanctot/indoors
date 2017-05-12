@@ -9,6 +9,7 @@ class StrangerTile extends React.Component {
       plant_health: this.props.plant_health,
       cleanliness: this.props.cleanliness,
       escape: this.props.escape,
+      moods: this.props.moods,
       current_user: '',
       cleanStatus: '',
       keyInRoom: 'key-img click',
@@ -240,6 +241,7 @@ class StrangerTile extends React.Component {
                   current_user= {this.state.current_user}
                   escape= {this.state.escape}
                   leaves= {this.state.leaves}
+                  moods= {this.state.moods}
                   cobweb1= {this.state.cobweb1}
                   cobweb2= {this.state.cobweb2}
                 />

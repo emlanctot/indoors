@@ -8,12 +8,14 @@ class RoomFormContainer extends React.Component {
     super(props);
       this.state = {
         name: '',
+        moodSelected: '',
         current_user: '',
         rooms: [],
         room_id: null
       };
       this.handleNameChange = this.handleNameChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleMoodSelection = this.handleMoodSelection.bind(this);
   }
 
   componentDidMount() {
@@ -61,13 +63,16 @@ class RoomFormContainer extends React.Component {
   event.preventDefault();
     let roomPayload = {
       name: this.state.name,
+      moods: this.state.moodSelected,
       user_id: this.state.current_user.id
     };
     this.sendInput(roomPayload);
     this.handleClearForm();
   }
 
-
+  handleMoodSelection(event) {
+    this.setState({ moodSelected: event.target.value })
+  }
 
 
   render() {
@@ -76,7 +81,9 @@ class RoomFormContainer extends React.Component {
       <div>
       <NewRoomForm
         name = {this.state.name}
+        moods = {this.state.moodSelected}
         nameChange = {this.handleNameChange}
+        moodSelection = {this.handleMoodSelection}
         handleSubmit = {this.handleSubmit}
       />
 
