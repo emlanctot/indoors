@@ -71,7 +71,7 @@ class NavContainer extends React.Component {
           <ul className="nav-bar">
           <li className="active"><Link to='/'><img className='nav-key' src={assetHelper["keyclose.png"]}></img></Link></li>
             <li className="active"><Link to='/rooms'>NEIGHBORS</Link></li>
-            <li className="active"><Link to={roomLink}>{linkName}</Link></li>
+            <li className="active"><Link to='/'>ROOM</Link></li>
             <li className="active"><Link to='/profiles'>PROFILE</Link></li>
           </ul>
         </div>

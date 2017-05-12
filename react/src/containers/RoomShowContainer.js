@@ -18,13 +18,55 @@ class RoomShowContainer extends React.Component {
         cleanliness: '',
         creator: '',
         escape: '',
-        moods: ''
+        moods: '',
+        formToggle: false,
+        keyInRoom: 'key-img click',
+        keyInInventory: 'hidden',
+        keyInRoomClose: 'keyclose-img click'
       };
       this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
+      this.handleFormButtonClick = this.handleFormButtonClick.bind(this);
+      this.handleEscape = this.handleEscape.bind(this);
   }
 
   componentDidMount() {
     this.getUserData();
+  }
+
+
+  sendUsersPlay(userPayload) {
+
+    let roomId = this.state.id;
+    let creator = this.state.current_user.id;
+    fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userPayload)
+    })
+    .then((response) => {
+      this.getKeyStatus();
+    })
+  }
+
+  getKeyStatus() {
+    if (this.state.escape === true) {
+      this.setState({
+        keyInRoom: 'hidden',
+        keyInRoomClose: 'hidden',
+        keyInInventory: 'inventory-selected'
+      })
+    }
+  }
+
+
+  handleEscape() {
+    this.setState({ escape: true })
+    let userPayload = {
+      room_id: this.state.id,
+      escape: true
+    };
+    this.sendUsersPlay(userPayload);
+    this.getKeyStatus();
   }
 
   handleUnlockedDoor() {
@@ -40,11 +82,21 @@ class RoomShowContainer extends React.Component {
           headers: { "Content-Type": "application/json" }
         })
         .then(response => response.json())
-        .then(body => {
-          this.setState( {message: body.message}, this.getUserData() )
-        })
         .catch(error => console.error(`Error in fetch: ${error.message}`));
       }
+    }
+  }
+
+
+  handleFormButtonClick() {
+    if (this.state.formToggle == false) {
+      this.setState({
+        formToggle: true,
+      })
+    } else {
+      this.setState({
+        formToggle: false,
+      })
     }
   }
 
@@ -75,6 +127,13 @@ class RoomShowContainer extends React.Component {
 
   render() {
 
+    let className;
+    if (this.state.formToggle) {
+      className = 'selected';
+    } else {
+      className = 'hidden';
+    }
+
     let userRoom;
     if (this.state.rooms.length === 0) {
       userRoom = () => {
@@ -84,6 +143,10 @@ class RoomShowContainer extends React.Component {
             <p>
               A web-based escape the room game that creates a methodical meditative space that reflects the user’s physical world, virtually.
             </p>
+            <RoomFormContainer
+              className= {className}
+              handleFormButtonClick= {this.handleFormButtonClick}
+            />
           </div>
         )
       }
@@ -102,6 +165,10 @@ class RoomShowContainer extends React.Component {
           moods= {this.state.moods}
           current_user= {this.state.current_user}
           handleUnlockedDoor= {this.handleUnlockedDoor}
+          handleEscape= {this.handleEscape}
+          keyInRoom= {this.state.keyInRoom}
+          keyInInventory= {this.state.keyInInventory}
+          keyInRoomClose= {this.state.keyInRoomClose}
           />
         )
       }
