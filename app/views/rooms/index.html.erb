@@ -2,10 +2,23 @@
   <div id='app'>
   </div>
 <% else %>
-  <div class="splash-logged">
-    <h2>Indoors</h2>
-    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-    |
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<div class="splash-logged">
+  <h2>Indoors</h2>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+  |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+</div>
+<div id="base-layer">
+  <div id="layer-one" class="layer">
+    <%= image_tag("window.png", class: 'window') %>
+    <div id="layer-two" class="layer">
+      <%= image_tag("plant.png", class: 'plant') %>
+      <div id="layer-three" class="layer">
+        <%= image_tag("chair.png", class: 'chair') %>
+        <div id="layer-four" class="layer">
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 <% end %>
