@@ -21,22 +21,22 @@ class NavContainer extends React.Component {
 
   componentDidMount() {
     this.getUserData();
-    this.getData();
+    // this.getData();
   }
 
 
-  getData() {
-    fetch(`/api/v1/rooms/${this.props.params.id}`, {credentials: 'same-origin'})
-      .then(response => response.json())
-      .then(responseData => {
-        if (responseData[0].id !== null){
-          this.setState({
-            rooms: responseData,
-            room_id: responseData[0].id
-           });
-         }
-      });
-  }
+  // getData() {
+  //   fetch(`/api/v1/rooms/${this.props.params.id}`, {credentials: 'same-origin'})
+  //     .then(response => response.json())
+  //     .then(responseData => {
+  //       if (responseData[0].id !== null){
+  //         this.setState({
+  //           rooms: responseData,
+  //           room_id: responseData[0].id
+  //          });
+  //        }
+  //     });
+  // }
 
 
 
@@ -53,15 +53,15 @@ class NavContainer extends React.Component {
 
   render() {
 
-    let roomLink;
-    let linkName;
-    if (this.state.rooms.length < 1) {
-      roomLink = `/users/${this.state.current_user.id}/rooms/new`
-      linkName = 'MAKE A ROOM'
-    } else {
-      roomLink= `/rooms/${this.state.room_id}`
-      linkName = 'ROOM'
-    }
+    // let roomLink;
+    // let linkName;
+    // if (this.state.rooms.length < 1) {
+    //   roomLink = `/users/${this.state.current_user.id}/rooms/new`
+    //   linkName = 'MAKE A ROOM'
+    // } else {
+    //   roomLink= `/rooms/${this.state.room_id}`
+    //   linkName = 'ROOM'
+    // }
 
 
     return(
