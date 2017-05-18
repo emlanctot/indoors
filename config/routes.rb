@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :rooms
-  resources :profiles
+  resources :rooms, only: [:index, :create, :new, :show, :update, :edit, :destroy]
+  resources :profiles, only: [:index, :create, :new, :show, :update, :edit, :destroy]
 
   namespace :api do
     namespace :v1 do
