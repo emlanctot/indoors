@@ -245,7 +245,7 @@ class RoomShowContainer extends React.Component {
               that reflects the user’s physical world, virtually. <br />
               Upon creating a room, the user will be free to explore, as long as
               they keep the room clean and water their ficus. Once they find the
-              the key, they are free to leave.
+              key, they are free to leave.
             </p>
             <RoomFormContainer
               rooms= {this.state.rooms}
