@@ -37,10 +37,14 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def update
-    @room = Room.find(params[:id])
-    @room.update(room_params)
-    if @room.save!
-      render json: @room
+    if user_signed_in?
+      @room = Room.find(params[:id])
+      if current_user === @room.user_id
+        @room.update(room_params)
+        if @room.save!
+          render json: @room
+        end
+      end
     end
   end
 
