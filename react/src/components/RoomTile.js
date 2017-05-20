@@ -19,20 +19,7 @@ class RoomTile extends React.Component {
     }
        this.handleWater = this.handleWater.bind(this);
        this.handleClean = this.handleClean.bind(this);
-      //  this.handleEscape = this.handleEscape.bind(this);
-      //  this.handleUnlockedDoor = this.handleUnlockedDoor.bind(this);
-
     }
-
-    // getUserData() {
-    //   fetch(`/api/v1/users`, {credentials: 'same-origin'})
-    //   .then(response => response.json())
-    //   .then(responseData => {
-    //     this.setState({
-    //       current_user: responseData.current_user
-    //     });
-    //   });
-    // }
 
     handleWater() {
       let value = this.state.plant_health += 1;
@@ -55,16 +42,6 @@ class RoomTile extends React.Component {
         body: JSON.stringify(userPayload)
       })
     }
-
-    // handleEscape() {
-    //   this.setState({ escape: true })
-    //   let userPayload = {
-    //     room_id: this.props.id,
-    //     escape: true
-    //   };
-    //   this.sendUsersPlay(userPayload);
-    //   this.getKeyStatus();
-    // }
 
     handleClean() {
       let value = this.state.cleanliness += 1;
