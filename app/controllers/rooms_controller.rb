@@ -11,6 +11,10 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  def update
+    @current_user = current_user
+  end
+
   private
 
   def room_params
