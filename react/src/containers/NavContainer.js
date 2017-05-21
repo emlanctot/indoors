@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import NewRoomForm from '../components/NewRoomForm';
-import RoomContainer from './RoomContainer';
 import NeighborsContainer from './NeighborsContainer';
 
 

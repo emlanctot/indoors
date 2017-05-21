@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import RoomContainer from './RoomContainer';
 import RoomTile from '../components/RoomTile';
 import RoomFormContainer from './RoomFormContainer'
 
