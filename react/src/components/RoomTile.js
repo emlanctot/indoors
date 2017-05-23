@@ -37,6 +37,7 @@ class RoomTile extends React.Component {
       let roomId = this.props.id;
       let creator = this.props.current_user.id;
       fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
+        credentials: 'same-origin',
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userPayload)

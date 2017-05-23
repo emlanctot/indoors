@@ -42,6 +42,7 @@ class RoomShowContainer extends React.Component {
     let roomId = this.state.id;
     let creator = this.state.current_user.id;
     fetch(`/api/v1/users/${creator}/rooms/${roomId}`, {
+      credentials: 'same-origin',
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userPayload)
