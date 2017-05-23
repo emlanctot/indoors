@@ -40,7 +40,6 @@ class Api::V1::RoomsController < ApplicationController
     if @current_user.id === @room.user_id
       @room.update(room_params)
       if @room.save!
-        binding.pry
         render json: @room
       end
     end
