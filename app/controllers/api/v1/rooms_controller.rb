@@ -9,7 +9,6 @@ class Api::V1::RoomsController < ApplicationController
   def show
     @user = current_user
     @room = Room.where(user_id: current_user.id)
-    # @room = Room.find(params[:id])
     render json: @room
   end
 
@@ -20,7 +19,6 @@ class Api::V1::RoomsController < ApplicationController
 
   def new
     @room = Room.new
-    # render json: @room
   end
 
   def create
@@ -37,10 +35,14 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def update
+    @current_user = current_user
     @room = Room.find(params[:id])
-    @room.update(room_params)
-    if @room.save!
-      render json: @room
+    if @current_user.id === @room.user_id
+      @room.update(room_params)
+      if @room.save!
+        binding.pry
+        render json: @room
+      end
     end
   end
 
