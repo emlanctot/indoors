@@ -78,6 +78,8 @@ class RoomShowContainer extends React.Component {
     let creator = this.state.current_user.id;
     if (this.state.escape === false) {
       window.alert("This door is locked, you need a key to open this door.");
+    } else if (this.state.plant_health !== 10 && this.state.cleanliness !== 10) {
+      window.alert("You are not properly tending to your room, you need to take care of some things before you leave.");
     } else {
       if (window.confirm('This door is unlocked, are you sure you want to leave?')){
         alert("You have left your room!");
