@@ -1,7 +1,7 @@
 # Indoors
 http://in-doors.herokuapp.com/
 <br />
-Indoors is a web-based escape-the-room game that creates a methodical, meditative space that reflects the user’s physical world, virtually. Indoors invites the user to create a room, and once a user has a room they can navigate the space, so long as they remember to water a plant and keep the room clean. The user's progress and stats in the game are saved to my Rails backend and change as time passes, using custom rake tasks and Heroku Scheduler.
+Indoors is a web-based escape-the-room game that creates a methodical, meditative space that reflects the user’s physical world, virtually. Indoors invites the user to create a room, and once a user has a room they can navigate the space, so long as they remember to water a plant and keep the room clean.
 
 
 
