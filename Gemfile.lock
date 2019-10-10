@@ -81,7 +81,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    ffi (1.9.18)
+    ffi (1.11.1)
     foundation-rails (6.3.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
